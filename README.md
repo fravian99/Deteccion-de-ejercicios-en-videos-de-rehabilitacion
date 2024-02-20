@@ -1,1 +1,1 @@
-# Deteccion-de-ejercicios-en-videos-de-rehabilitacion
+# Detección de ejercicios en videos de rehabilitación
