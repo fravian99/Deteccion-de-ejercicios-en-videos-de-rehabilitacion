@@ -88,3 +88,36 @@ Es uno de los métodos para diferenciar dos posturas de dos imágenes concretas 
 $\cos \theta = \frac{\vec{a} \cdot \vec{b}}{\lVert \vec{a} \lVert \cdot \lVert \vec{b} \lVert}$
 
 Si el valor de este fuera 1 es que la imagen sería igual, mientras que si fuese 0 serían ortogonales, es decir que no comparten ninguna similitud.
+
+\section{Dynamic time warping}
+La deformación dinámica permite comparar dos secuencias temporales en la que se realizan los movimientos a distintas velocidades.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/warp}
+	\caption{}
+	\label{fig:warp}
+\end{figure}
+
+\subsection{Matriz de costes locales}
+Esta técnica se realiza mediante la comparación de las distancias de todos los pares de puntos en dos secuencias. Una distancia menor implica que estos puntos pueden ser candidatos a ser emparejados. \cite{dwt:dwtdescription}
+
+
+\subsection{Matriz de costes acumulados}
+Una vez emparejados los puntos se usa una matriz de costes acumulados.\cite{s19132882}
+
+En la matriz de costes acumulados se inicializan los valores de la siguiente manera:
+\begin{enumerate}
+	\item  La primera fila:
+	\begin{equation}
+		D(1,j) = C(1,j)
+	\end{equation}
+	\item La primera columna:
+	\begin{equation}
+		D(i,1) = \sum_{k=1}^{i}C(k,1)
+	\end{equation} 
+	\item El resto:
+	\begin{equation}
+		D(i,j) = \min\{D(i-1, j-1),D(i-1,j),D(i,j-1)\} + C(i,j)
+	\end{equation}
+\end{enumerate}
