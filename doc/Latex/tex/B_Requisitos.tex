@@ -2,39 +2,169 @@
 
 \section{Introducción}
 
-Una muestra de cómo podría ser una tabla de casos de uso:
+\section{Objetivos generales}
 
-% Caso de Uso 1 -> Consultar Experimentos.
+\section{Catálogo de requisitos}
+\subsection{Requisitos funcionales}
+\begin{itemize}
+		\item \textbf{RF-1} Gestión de ejercicios
+	\begin{itemize}
+		\item \textbf{RF-1.1}  El terapeuta podrá crear un ejercicio nuevo.
+		\item \textbf{RF-1.2} El terapeuta podrá eliminar un ejercicio existente.
+	\end{itemize}
+	\item \textbf{RF-2} Selección de ejercicios
+	\begin{itemize}
+		\item \textbf{RF-2.1}  El terapeuta podrá ver los ejercicios que hay disponibles.
+		\item \textbf{RF-2.2} El usuario podrá ver los ejercicios que hay disponibles.
+		\item \textbf{RF-2.3} El usuario podrá seleccionar el ejercicio que se va a comparar.
+	\end{itemize}
+	\item \textbf{RF-3} Gestión de ficheros
+	\begin{itemize}
+		\item \textbf{RF-3.1}  El terapeuta podrá guardar los ficheros con los datos en la aplicación.
+		\item \textbf{RF-3.2} El usuario podrá seleccionar el fichero de datos que se va a comparar.
+	\end{itemize}
+	\item \textbf{RF-4} Comparación de ejercicios 
+	\begin{itemize} 
+		\item \textbf{RF-4.1}  El usuario podrá ver una puntuación numérica del ejercicio.
+	\end{itemize}
+\end{itemize}
+\section{Especificación de requisitos}
+
+
 \begin{table}[p]
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
-		\textbf{CU-1}    & \textbf{Ejemplo de caso de uso}\\
+		\textbf{CU-1}    & \textbf{Creación de un nuevo ejercicio}\\
 		\toprule
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                & Alumno \\
-		\textbf{Requisitos asociados} & RF-xx, RF-xx \\
-		\textbf{Descripción}          & La descripción del CU \\
+		\textbf{Requisitos asociados} & RF-1.1 RF-2.1 \\
+		\textbf{Descripción}          & Permite al terapeuta crear un ejercicio   \\
 		\textbf{Precondición}         & Precondiciones (podría haber más de una) \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pasos del CU
-			\item Pasos del CU (añadir tantos como sean necesarios)
+			\item El terapeuta introduce el nombre del ejercicio.
+			\item El terapeuta añade un fichero de datos.
+			\item El terapeuta presiona el botón de confirmar.
 		\end{enumerate}\\
-		\textbf{Postcondición}        & Postcondiciones (podría haber más de una) \\
-		\textbf{Excepciones}          & Excepciones \\
-		\textbf{Importancia}          & Alta o Media o Baja... \\
+		\textbf{Postcondición}        & Ninguna \\
+		\textbf{Excepciones}          & Ninguna \\
+		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1 Nombre del caso de uso.}
+	\caption{CU-1 Creación de un nuevo ejercicio.}
 \end{table}
 
-\section{Objetivos generales}
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-2}    & \textbf{Eliminación de un ejercicio}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Alumno \\
+		\textbf{Requisitos asociados} & RF-1.2 RF-2.1 \\
+		\textbf{Descripción}          & Permite al terapeuta eliminar un ejercicio   \\
+		\textbf{Precondición}         & El terapeuta debe haber creado ejercicios previamente \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El terapeuta selecciona el ejercicio.
+			\item El terapeuta presiona el botón de confirmar.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Ninguna \\
+		\textbf{Excepciones}          & Ninguna \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-2 Eliminación de un ejercicio.}
+\end{table}
 
-\section{Catálogo de requisitos}
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-3}    & \textbf{Selección de ejercicio}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Alumno \\
+		\textbf{Requisitos asociados} & RF-2.2 RF-2.3 \\
+		\textbf{Descripción}          & Permite al usuario ver los ejercicios disponibles y seleccionar el ejercicio que se va a comparar\\
+		\textbf{Precondición}         & El terapeuta debe haber creado ejercicios previamente \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario selecciona un ejercicio de un listado.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Ninguna \\
+		\textbf{Excepciones}          & Ninguna \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-3 Selección de un nuevo ejercicio.}
+\end{table}
 
-\section{Especificación de requisitos}
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-4}    & \textbf{Comparación de ejercicio}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Alumno \\
+		\textbf{Requisitos asociados} & RF-4.1 \\
+		\textbf{Descripción}          & Permite al usuario comparar el ejercicio\\
+		\textbf{Precondición}     &    
+		\begin{enumerate}		
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario ha seleccionado un ejercicio.
+			\item El usuario ha seleccionado un fichero.
+			\item El fichero se ha cargado correctamente.
+		\end{enumerate}\\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario visualiza la puntuación de un ejercicio.
+			\item El usuario visualiza el video del ejercicio.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Ninguna \\
+		\textbf{Excepciones}          & Ninguna \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-4 Comparación de ejercicio.}
+\end{table}
 
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-5}    & \textbf{Cargar fichero de ejercicio}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Alumno \\
+		\textbf{Requisitos asociados} & RF-3.1\\
+		\textbf{Descripción}          & Permite al usuario ver los ejercicios disponibles y seleccionar el ejercicio que se va a comparar\\
+		\textbf{Precondición}         & El usuario a seleccionado un ejercicio \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario selecciona un fichero.
+			\item El usuario presiona el botón de confirmar.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ha seleccionado un fichero correctamente. \\
+		\textbf{Excepciones}          & Ninguna \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-5 Cargar fichero de ejercicio}
+\end{table}
 
