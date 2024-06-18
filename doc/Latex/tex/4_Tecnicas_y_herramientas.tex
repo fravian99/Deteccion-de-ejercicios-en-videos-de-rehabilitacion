@@ -2,6 +2,14 @@
 
 En este apartado se explicarán las herramientas utilizadas para el trabajo.
 
+\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
+{ \multicolumn{1}{l}{Herramientas} & Pruebas & App & Memoria \\}{ 
+	Jupyter & X & & \\
+	Git + Github + Gittyup & X & X & X\\
+	\LaTeX + TexStudio & & & X\\
+	
+} 
+
 \section{\LaTeX}
 \LaTeX es un sistema de composición de textos orientado a la creación de documentos escritos que presenten una alta calidad tipográfica. ~\cite{wiki:latex}
 
@@ -25,5 +33,45 @@ Muy útil para poder ver los cambios que se van realizando a medida que avanza e
 \section{Visual Studio Code}
 \textit{Visual Studio Code} (también llamado VS Code) es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web. \cite{wiki:visualstudiocode}
 
+
+
 \section{Detectron2}
 \textit{Detectron2} es una librería de python destinada a la detección y segmentación de imágenes. 
+
+\section{Librerías de Python}
+\subsection{Pandas}
+Pandas es una librería de código abierto para análisis y manipulación de datos. \cite{pandas}
+
+\subsection{Numpy}
+\textit{Numpy} es una librería que facilita el trabajar con matrices en Python.
+
+\subsection{Dtaidistance}
+Una librería que implementa distintas funciones relacionadas con DTW.
+
+\subsection{FastDTW}
+FastDTW es una librería de Python  que implementa una aproximación de DTW que tiene una complejidad lineal en tiempo y espacio. \cite{Salvador2004FastDTWTA}
+Finalmente se descarto su uso ya que dicha librería no se ha actualizado desde hace tiempo y cambios en las dependencias provocaban errores.
+
+\section {Tecnologías para desarrollar la aplicación}
+Se decidió realizar una aplicación web, en la que se divide el backend del frontend y se comunican mediante el uso de una API. Esto ofrece ventajas como pueden ser:
+\begin{itemize}
+	\item  Accesibilidad: el usuario no tendría que instalar nada,  simplemente buscar la url en un navegador, por lo que no necesita tener conocimientos avanzados de informática.
+	\item Compatibilidad: El usuario podrá acceder a la aplicación  independientemente de la aplicación, siempre que tenga un navegador compatible.
+\end{itemize}
+
+\subsection{Angular}
+Angular es un framework de código abierto desarrollado por Google que permite el desarrollo de frontend de forma sencilla, usa una arquitectura basada en componentes, lo que  permite crear elementos encapsulados reutilizables. Usa Typescript,  HTML y SCSS.
+
+\subsection{FastAPI}
+FastAPI es un framework que permite crear APIs en Python para el backend de aplicaciones web.
+
+\subsection{Docker}
+Docker permite la creación de contenedores aislados, y despliegue de los mismos no haciendo falta instalar en el sistema anfitrión las dependencias del software que se va a ejecutar en los contenedores, ya que se instala en los mismos de forma automatizada. 
+
+\subsection{Nginx}
+Es un servidor web de código abierto, se usara para ejecutar el frontend  de Angular de la aplicación.
+
+\subsection{PostgreSQL}
+PostgreSQL es un sistema de gestión de bases de datos relacionales de código abierto.
+
+\subsection{SQLAlchemy}
