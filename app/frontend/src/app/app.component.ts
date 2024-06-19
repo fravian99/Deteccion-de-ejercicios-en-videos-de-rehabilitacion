@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { getHtmlTagDefinition } from '@angular/compiler';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { MainService } from '../services/main.service';
 
@@ -15,17 +16,6 @@ export class AppComponent {
     this.mainService.testApi().subscribe(
       (res: any) => {
         if (res) {
-          console.log(res.message);
-        } else {
-          console.log("error")
-        }
-      }
-    );
-
-    this.mainService.video("pelota2").subscribe(
-      (res: any) => {
-        if (res) {
-          this.video = res;
           console.log(res.message);
         } else {
           console.log("error")

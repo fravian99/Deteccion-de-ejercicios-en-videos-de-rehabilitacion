@@ -1,0 +1,14 @@
+<section class="new-exercise">
+    <h2>{{"new-exercise.title" | translate}}</h2>
+    <form [formGroup]="newExerciseForm" (ngSubmit)="submitForm()">
+        <div class="exercise-name">
+            <label>{{"new-exercise.exercise-name" | translate}}</label>
+            <input type="text" formControlName="name">
+        </div>
+        <div class ="video-file">
+            <label for="file">{{"new-exercise.choose-file" | translate}}</label>
+            <input type="file" (change)="onVideoPicked($event)">
+        </div>
+        <button type="submit">{{"new-exercise.confirm" | translate}}</button>
+    </form>
+</section>

@@ -1,0 +1,14 @@
+<section class="signup">
+    <h2>{{"signup.title" | translate}}</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="submitForm()">
+        <div class="username">
+            <label>{{"signup.username" | translate}}</label>
+            <input type="text" formControlName="username">
+        </div>
+        <div class ="password">
+            <label>{{"signup.password" | translate}}</label>
+            <input type="text" formControlName="password">
+        </div>
+        <button type="submit">{{"signup.confirm" | translate}}</button>
+    </form>
+</section>

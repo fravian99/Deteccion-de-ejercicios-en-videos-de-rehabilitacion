@@ -9,6 +9,12 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { SignupComponent } from './signup/signup.component';
+import { NewExerciseComponent } from './new-exercise/new-exercise.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -19,12 +25,17 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     VideoPlayerComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    LoginComponent,
+    SignupComponent,
+    NewExerciseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -34,7 +45,9 @@ export function createTranslateLoader(http: HttpClient) {
       defaultLanguage: 'es'
     })
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,15 @@
+.new-exercise {
+    height: 100%;
+    white-space: pre-wrap;
+
+    div {
+        width: 100%;
+        padding: auto;
+        margin-bottom: 10px;
+
+        label, input {
+            display: block;
+        }
+    }
+
+}

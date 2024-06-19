@@ -1,5 +1,11 @@
 {
     "app": {
         "title" : "Comparador de videos"  
+    },
+    "new-exercise": {
+        "title": "Nuevo ejercicio",
+        "exercise-name": "Nombre del ejercicio",
+        "choose-file": "Elige un fichero",
+        "confirm": "Confirmar"
     }
 }
