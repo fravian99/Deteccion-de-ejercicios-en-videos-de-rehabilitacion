@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule, HttpClient, HttpBackend } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -14,7 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SignupComponent } from './signup/signup.component';
 import { NewExerciseComponent } from './new-exercise/new-exercise.component';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpRequestInterceptor } from './interceptors/http-request.interceptor';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -46,7 +47,8 @@ export function createTranslateLoader(http: HttpClient) {
     })
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

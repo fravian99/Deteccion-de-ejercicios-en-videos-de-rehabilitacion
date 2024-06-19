@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 
-from fastapi import Form, UploadFile
 
-class UserBase(BaseModel):
+class AuthBase(BaseModel):
     username: str
-    password: str 
+    password: str

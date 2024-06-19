@@ -6,6 +6,19 @@
         "title": "Nuevo ejercicio",
         "exercise-name": "Nombre del ejercicio",
         "choose-file": "Elige un fichero",
+        "choose-video": "Elige un video",
+        "confirm": "Confirmar"
+    },
+    "login": {
+        "title": "Inicio de sesión",
+        "username": "Usuario",
+        "password": "Contraseña",
+        "confirm": "Confirmar"
+    },
+    "signup": {
+        "title": "Crear cuenta",
+        "username": "Usuario",
+        "password": "Contraseña",
         "confirm": "Confirmar"
     }
 }

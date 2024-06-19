@@ -1,11 +1,14 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, func, ForeignKey
-from sqlalchemy.orm import relationship
-
+from sqlalchemy import Column, String
 from app.database import Base
+import uuid
 
 class User(Base):
     __tablename__ = "User"
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True)
     username = Column(String, unique=True, nullable=False)
-    password = Column(String, nullable=False)
-    rol = Column(String)
+    rol = Column(String, default="paciente")
+
+    def __init__(self, username: str):
+        self.id = str(uuid.uuid4())
+        self.rol = "paciente"
+        self.username = username

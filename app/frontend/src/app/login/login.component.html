@@ -3,12 +3,13 @@
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <div class="username">
             <label>{{"login.username" | translate}}</label>
-            <input type="text" formControlName="username">
+            <input type="text" formControlName="username" required>
         </div>
         <div class ="password">
             <label>{{"login.password" | translate}}</label>
-            <input type="text" formControlName="password">
+            <input type="password" formControlName="password" required>
         </div>
         <button type="submit">{{"login.confirm" | translate}}</button>
     </form>
+    <button routerLink="/signup">{{"signup.title" | translate}}</button>
 </section>

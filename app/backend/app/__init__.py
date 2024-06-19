@@ -1,9 +1,13 @@
 import os
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from app.database import engine
 from app import models
+from app.routes import exercise, user
+from app.config import settings
+import app.config
+import app.auth as auth
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -30,7 +34,7 @@ async def main():
     return {"message": "Hello World"}
 
 @app.get("/video/{ej}")
-async def get_video(ej):
+async def get_video(ej, get_current_user: int = Depends(auth.get_current_user)):
     
     def iterfile(video_path):
         with open(video_path, mode="rb") as file_like:
@@ -42,3 +46,6 @@ async def get_video(ej):
         return StreamingResponse(iterfile(video_path), media_type="video/mp4")
         #return FileResponse(video_path)
     return 
+
+app.include_router(exercise.router)
+app.include_router(user.router)
