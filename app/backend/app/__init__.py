@@ -2,6 +2,11 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
+from app.database import engine
+from app import models
+
+models.Base.metadata.create_all(bind=engine)
+
 origins = [
     "http://localhost",
     "http://localhost:4200",
