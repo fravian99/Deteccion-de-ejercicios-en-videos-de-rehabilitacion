@@ -1,6 +1,7 @@
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, StreamingResponse
 
 HOST = '0.0.0.0'
 PORT = 4200
@@ -26,3 +27,16 @@ async def main():
 async def main():
     return {"message": "Hello World"}
 
+@app.get("/video/{ej}")
+async def get_video(ej):
+    
+    def iterfile(video_path):
+        with open(video_path, mode="rb") as file_like:
+            yield from file_like
+    path = "data"+ os.sep + "videos"
+    if (ej == "pelota2"):
+        video_path = path + os.sep + "josemi_pelota2_1.mp4"
+
+        return StreamingResponse(iterfile(video_path), media_type="video/mp4")
+        #return FileResponse(video_path)
+    return 

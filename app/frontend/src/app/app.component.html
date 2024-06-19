@@ -1,4 +1,3 @@
-<div>
-  {{title | translate}}
-</div>
+<app-header></app-header>
+<app-video-player *ngIf="video != undefined" [filePath]="video"></app-video-player>
 <router-outlet />

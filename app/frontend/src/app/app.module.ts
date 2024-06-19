@@ -7,6 +7,8 @@ import { HttpClientModule, HttpClient, HttpBackend } from '@angular/common/http'
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { VideoPlayerComponent } from './video-player/video-player.component';
+import { HeaderComponent } from './header/header.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -15,7 +17,9 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VideoPlayerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
