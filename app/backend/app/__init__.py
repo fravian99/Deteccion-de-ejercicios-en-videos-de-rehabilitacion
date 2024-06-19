@@ -1,22 +1,19 @@
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, StreamingResponse
-
-HOST = '0.0.0.0'
-PORT = 4200
-
-"""origins = [
-    "http://localhost:" + str(PORT),
-    HOST + ":" + str(PORT),
-]"""
+from fastapi.responses import StreamingResponse
+origins = [
+    "http://localhost",
+    "http://localhost:4200",
+    "127.0.0.1"
+]
 
 app = FastAPI()
 app.add_middleware(CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins= ["*"],
+    allow_credentials= True,
+    allow_methods= ["*"],
+    allow_headers= ["*"],
 )
 
 @app.get("/")
@@ -33,7 +30,7 @@ async def get_video(ej):
     def iterfile(video_path):
         with open(video_path, mode="rb") as file_like:
             yield from file_like
-    path = "data"+ os.sep + "videos"
+    path = "app" + os.sep +"data"+ os.sep + "videos"
     if (ej == "pelota2"):
         video_path = path + os.sep + "josemi_pelota2_1.mp4"
 
