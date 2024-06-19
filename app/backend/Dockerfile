@@ -17,7 +17,7 @@ COPY ./app .
 EXPOSE 8081
 
 # install required libraries
-RUN pip3 install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 # This is the runtime command for the container
-CMD python3 .
+CMD ["fastapi", "run", "src", "--port", "8081"]
