@@ -1,5 +1,15 @@
 
 .content{
-    padding-top: 60px;
-    margin-left: 20px;
+    //display: flex;
+    padding: 60px;
+    max-width: 70%;
+    margin: 0 auto;
+
 }
+
+app-header {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+
