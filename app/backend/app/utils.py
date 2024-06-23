@@ -1,5 +1,6 @@
 import os
 import secrets
+from fastapi.responses import StreamingResponse
 from passlib.context import CryptContext
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -30,3 +31,12 @@ def delete_file(file, approute):
     except Exception as ex:
         raise ex
     return True
+
+def open_video(filename, approute):
+    video_path = os.path.join(approute, filename)
+
+    def iterfile(video_path):
+        with open(video_path, mode="rb") as file_like:
+            yield from file_like
+    
+    return StreamingResponse(iterfile(video_path), media_type="video/mp4")

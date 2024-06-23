@@ -1,1 +1,11 @@
-<p>exercises works!</p>
+<section class="exercises">
+    <h2>{{"exercises.title" | translate}}</h2>
+    <label>{{"exercises.selection" | translate}}</label>
+    <div class="exercise-list">
+        <div class="exercise-option" *ngFor="let exercise of exercises">
+            <button routerLink="/compare-exercise/{{exercise.id}}">
+                {{exercise.name}}
+            </button>
+        </div>
+    </div>
+</section>

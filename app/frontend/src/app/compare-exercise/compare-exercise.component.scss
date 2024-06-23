@@ -1,0 +1,30 @@
+.compare-exercise {
+    height: 100%;
+    width: 100%;
+
+    .compare-parts {
+        display: flex;
+        .exercise {
+            width: 45%;
+            height: 100%;
+            padding-right: 30px;
+            
+            app-video-player {
+                display: "flex";
+                width: 100% !important;
+                height: auto;
+            }
+        }
+        .score {
+            height: 100%;
+            width: 45%;
+            justify-self: end;
+            align-self: self-start;
+        }
+
+        .exercise, .score {
+            display: inline-block;
+        }
+    }
+
+}

@@ -1,13 +1,15 @@
 from pydantic import BaseModel
 
-from fastapi import Form, UploadFile
+class ExerciseName(BaseModel):
+    id: int
+    name: str = ""
 
-class BaseExercise(BaseModel):
+class NewExercise(BaseModel):
     name: str = ""
     data: str = ""
     video: str = ""
 
-class Exercise(BaseExercise):
+class Exercise(NewExercise):
     id: int
 
     class Config:

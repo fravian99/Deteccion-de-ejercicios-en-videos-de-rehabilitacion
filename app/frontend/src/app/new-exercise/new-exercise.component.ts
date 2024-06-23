@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewExercise } from '../models/newExercise';
 import { MainService } from '../services/main.service';
+import { ExerciseService } from '../services/exercise.service';
 
 @Component({
   selector: 'app-new-exercise',
@@ -12,7 +13,7 @@ export class NewExerciseComponent {
   newExerciseForm!: FormGroup;
   showErrors:boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private mainService: MainService) {
+  constructor(private formBuilder: FormBuilder, private exerciseService: ExerciseService) {
 
   }
 
@@ -38,7 +39,7 @@ export class NewExerciseComponent {
   submitForm() {
     if (this.newExerciseForm.valid) {
       let newExercise: NewExercise = this.newExerciseForm.value;
-      this.mainService.postNewExercise(newExercise).subscribe();
+      this.exerciseService.postNewExercise(newExercise).subscribe();
     } else {
       this.showErrors = true;
     }

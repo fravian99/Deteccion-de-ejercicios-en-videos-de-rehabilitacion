@@ -1,3 +1,3 @@
-from app.schemas.new_exercise import BaseExercise, Exercise
+from app.schemas.exercise import *
 from app.schemas.user import AuthBase
 from app.schemas.auth import Token

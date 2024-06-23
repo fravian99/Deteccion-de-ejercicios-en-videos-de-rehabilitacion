@@ -20,5 +20,16 @@
         "username": "Usuario",
         "password": "Contraseña",
         "confirm": "Confirmar"
+    },
+    "exercises": {
+        "title": "Ejercicios",
+        "selection": "Selecciona un ejercicio"
+    },
+    "compare": {
+        "title": "Comparador",
+        "choose-file": "Elige un fichero",
+        "send": "Enviar",
+        "score": "Puntuación",
+        "confirm": "Confirmar"
     }
 }

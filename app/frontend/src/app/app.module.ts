@@ -17,6 +17,8 @@ import { NewExerciseComponent } from './new-exercise/new-exercise.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpRequestInterceptor } from './interceptors/http-request.interceptor';
 import { ExercisesComponent } from './exercises/exercises.component';
+import { CompareExerciseComponent } from './compare-exercise/compare-exercise.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -32,7 +34,9 @@ export function createTranslateLoader(http: HttpClient) {
     LoginComponent,
     SignupComponent,
     NewExerciseComponent,
-    ExercisesComponent
+    ExercisesComponent,
+    CompareExerciseComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

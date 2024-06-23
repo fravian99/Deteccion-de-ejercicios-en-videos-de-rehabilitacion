@@ -1,0 +1,17 @@
+<section class="compare-exercise">
+    <h2>{{"compare.title" | translate}}</h2>
+    <div class="compare-parts">
+        <div class="exercise">
+            <label *ngIf="exercise != undefined">{{exercise.name}}</label>
+            <app-video-player *ngIf="video != undefined" [filePath]="video"></app-video-player>
+        </div>
+        <div class="score">
+            <input type="file" (change)="setFile($event)">
+            <button (click)="sendExerciseWithFile()">{{"compare.send" | translate}}</button>
+            <div *ngIf="score != undefined">
+                <h2>{{"compare.score" | translate}}</h2>
+                <h1>{{score | number:'1.0-2'}}</h1>
+            </div>
+        </div>
+    </div>
+</section>

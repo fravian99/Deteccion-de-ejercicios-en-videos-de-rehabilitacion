@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { NewExerciseComponent } from './new-exercise/new-exercise.component';
 import { SignupComponent } from './signup/signup.component';
+import { ExercisesComponent } from './exercises/exercises.component';
+import { CompareExerciseComponent } from './compare-exercise/compare-exercise.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -12,7 +14,9 @@ const routes: Routes = [
   {path: 'test', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'new-exercise', component: NewExerciseComponent,  canActivate: [AuthGuard]}
+  {path: 'new-exercise', component: NewExerciseComponent,  canActivate: [AuthGuard]},
+  {path: 'exercises', component: ExercisesComponent,  canActivate: [AuthGuard]},
+  {path: 'compare-exercise/:id', component: CompareExerciseComponent,  canActivate: [AuthGuard]}
 ];
 
 @NgModule({
