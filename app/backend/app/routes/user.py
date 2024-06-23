@@ -1,10 +1,11 @@
 
+from typing import Annotated
 from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordRequestForm
 from app import auth, utils
 from app.database import get_db
-from app.schemas import AuthBase
+from app.schemas import AuthBase, Token
 from app.models import User
 from app.controllers import user_controller, auth_controller
 
@@ -23,8 +24,8 @@ async def new_user(user: AuthBase, db: Session = Depends(get_db)):
                             detail="Internal Error")
     return True
 
-@router.post("/login/")
-def login(user_credentials: OAuth2PasswordRequestForm=Depends(), db: Session = Depends(get_db)):
+@router.post("/login")
+def login(user_credentials: Annotated[OAuth2PasswordRequestForm,Depends()], db: Session = Depends(get_db)) -> Token:
     user: User = user_controller.get_user_by_username(db=db, username=user_credentials.username)
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
@@ -33,5 +34,5 @@ def login(user_credentials: OAuth2PasswordRequestForm=Depends(), db: Session = D
     if not credentials or not utils.verify_password(user_credentials.password, credentials.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
 
-    token = auth.create_token(data={'user_id':user.id,'username':user.username,"rol":user.rol})
-    return {"message": "Logged in successfully","token":token}
+    token = auth.create_token(data={'sub':user.id,'username':user.username,"rol":user.rol})
+    return Token(access_token=token, token_type="Bearer")

@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, timezone
 from app.config import settings
 
 from fastapi.security.oauth2 import OAuth2PasswordBearer
-oauth2_schema = OAuth2PasswordBearer(tokenUrl='login')
+oauth2_schema = OAuth2PasswordBearer(tokenUrl='user/login')
 
 
 def create_token(data: dict, expires_delta: timedelta | None = None):
@@ -23,7 +23,7 @@ def create_token(data: dict, expires_delta: timedelta | None = None):
 def verify_token(token: str, credential_expection):
     try:
         payload = jwt.decode(token,settings.SECRET_KEY,algorithms=settings.ALGORITHM)
-        user_id: int = payload.get('user_id')
+        user_id: int = payload.get('sub')
         if user_id is None:
             raise credential_expection
     except jwt.ExpiredSignatureError:
@@ -33,7 +33,8 @@ def verify_token(token: str, credential_expection):
     return payload
     
 def get_current_user(token: str = Depends(oauth2_schema)):
-    credential_expection = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail="Could\
-                            not validate credential",headers={"WWW-Authenticate":"Bearer"})
+    credential_expection = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
+                                         detail="Could not validate credential",
+                                         headers={"WWW-Authenticate":"Bearer"})
     
     return verify_token(token,credential_expection)
