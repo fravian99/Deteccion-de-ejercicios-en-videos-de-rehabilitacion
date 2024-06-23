@@ -23,10 +23,11 @@ button:disabled {
   cursor: auto;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   border-top: none;
   border-right: none;
   border-left: none;
   outline: none;
 }
+
 

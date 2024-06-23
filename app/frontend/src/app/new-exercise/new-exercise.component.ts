@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NewExercise } from '../../models/newExercise';
-import { MainService } from '../../services/main.service';
+import { NewExercise } from '../models/newExercise';
+import { MainService } from '../services/main.service';
 
 @Component({
   selector: 'app-new-exercise',
@@ -10,27 +10,37 @@ import { MainService } from '../../services/main.service';
 })
 export class NewExerciseComponent {
   newExerciseForm!: FormGroup;
+  showErrors:boolean = false;
 
   constructor(private formBuilder: FormBuilder, private mainService: MainService) {
 
   }
 
   ngOnInit() {
+    this.showErrors = false;
     this.newExerciseForm = this.formBuilder.group({
       name: ['', Validators.required],
+      data: ['', Validators.required],
       video: ['', Validators.required]
     });
   }
 
+  onFilePicked(event: any) {
+    let file = event.target.files[0];
+    this.newExerciseForm.patchValue({ data: file});
+  }
+
   onVideoPicked(event: any) {
     let file = event.target.files[0];
-    console.log(file);
     this.newExerciseForm.patchValue({ video: file});
   }
 
   submitForm() {
-    console.log(this.newExerciseForm.value);
-    let newExercise: NewExercise = this.newExerciseForm.value;
-    this.mainService.postNewExercise(newExercise).subscribe();
+    if (this.newExerciseForm.valid) {
+      let newExercise: NewExercise = this.newExerciseForm.value;
+      this.mainService.postNewExercise(newExercise).subscribe();
+    } else {
+      this.showErrors = true;
+    }
   }
 }

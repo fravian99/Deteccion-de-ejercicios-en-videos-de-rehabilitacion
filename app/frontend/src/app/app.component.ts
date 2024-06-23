@@ -1,7 +1,5 @@
-import { getHtmlTagDefinition } from '@angular/compiler';
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import { MainService } from '../services/main.service';
+import { Component } from '@angular/core';
+import { MainService } from './services/main.service';
 
 @Component({
   selector: 'app-root',

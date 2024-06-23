@@ -5,8 +5,12 @@
             <label>{{"new-exercise.exercise-name" | translate}}</label>
             <input type="text" formControlName="name">
         </div>
-        <div class ="video-file">
+        <div class ="data-file">
             <label for="file">{{"new-exercise.choose-file" | translate}}</label>
+            <input type="file" (change)="onFilePicked($event)">
+        </div>
+        <div class ="video-file">
+            <label for="file">{{"new-exercise.choose-video" | translate}}</label>
             <input type="file" (change)="onVideoPicked($event)">
         </div>
         <button type="submit">{{"new-exercise.confirm" | translate}}</button>

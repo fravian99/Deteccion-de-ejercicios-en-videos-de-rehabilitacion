@@ -1,2 +1,2 @@
-from app.schemas.new_exercise import NewExercise
-from app.schemas.user import UserBase
+from app.schemas.new_exercise import BaseExercise, Exercise
+from app.schemas.user import AuthBase
