@@ -40,7 +40,7 @@ export class LoginComponent {
       this.userService.login(formData).subscribe(
         (res: any) => {
           console.log(res)
-          this.authService.setAccessToken(res.token);
+          this.authService.setAccessToken(res.access_token);
           this.loginRedirect()
         }
       );

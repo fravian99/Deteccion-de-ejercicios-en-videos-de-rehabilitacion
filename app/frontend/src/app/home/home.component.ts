@@ -10,15 +10,5 @@ export class HomeComponent {
   video = undefined;
 
   constructor(private mainService: MainService) {
-    this.mainService.getVideo("pelota2").subscribe(
-      (res: any) => {
-        if (res) {
-          this.video = res;
-          console.log(res.message);
-        } else {
-          console.log("error")
-        }
-      }
-    );
   }
 }
