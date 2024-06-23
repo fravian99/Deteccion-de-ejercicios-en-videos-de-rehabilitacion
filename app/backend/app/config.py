@@ -18,6 +18,9 @@ class Settings(BaseSettings):
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
 
+    FIRST_SUPERUSER: str
+    FIRST_SUPERUSER_PASSWORD: str
+    ADMIN_ROLE: str
 
     model_config = SettingsConfigDict(
         env_file=".env", env_ignore_empty=True, extra="ignore"
