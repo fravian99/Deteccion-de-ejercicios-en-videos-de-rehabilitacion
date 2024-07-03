@@ -1,3 +1,66 @@
+$my-palette: (
+  50: #e5f0f5,
+  100: #bfdae5,
+  200:#9fbfce,
+  300:#7ea4b6,
+  400:#6590a4,
+  500: #7badc6,
+  600:#2e6981,
+  700: #1d5065,
+  800:#0e3d50,
+  900: #063a4d,
+
+  contrast: (
+    50: #f9f9f9,
+    100: #f2f2f2,
+    200:#e8e8e8,
+    300:#d8d8d8,
+    400:#b4b4b4,
+    500: #949494,
+    600:#6c6c6c,
+    700: #595959,
+    800:#4c4c4c,
+    900: #2a2a2a,
+  ),
+);
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+$frontend-primary: mat.define-palette($my-palette);
+$frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$frontend-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$frontend-theme: mat.define-light-theme((
+  color: (
+    primary: $frontend-primary,
+    accent: $frontend-accent,
+    warn: $frontend-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($frontend-theme);
+
 /* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
 body { 
