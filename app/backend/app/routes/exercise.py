@@ -9,6 +9,7 @@ from app.utils import save_file, delete_file, open_video
 from app import auth, schemas
 from app.controllers import exercise_controller, parts_controller
 from app.models import Exercise
+from app.dtw_calc.calc import compare
 
 from sqlalchemy.orm import Session
 
@@ -81,13 +82,13 @@ async def get_exercise(id, get_current_user: int = Depends(auth.get_current_user
 
 @router.post("/send-user-exercise/{id}")
 async def post_user_exercise(id: int, 
-                             data: Annotated[UploadFile, File()], 
-                             get_current_user: int = Depends(auth.get_current_user), 
+                             data: Annotated[UploadFile, File()],
+                             get_current_user: int = Depends(auth.get_current_user),
                              db:Session = Depends(get_db)):
     exercise = exercise_controller.get_exercise(db, id)
     profesional_path = os.path.join(DATA_DIR, exercise.data)
     with open(profesional_path, "rb") as profesional:  
-        comparation = 10
+        comparation = compare(data.file, profesional)
     return comparation
 
 
