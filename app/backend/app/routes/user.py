@@ -34,5 +34,5 @@ def login(user_credentials: Annotated[OAuth2PasswordRequestForm,Depends()], db: 
     if not credentials or not utils.verify_password(user_credentials.password, credentials.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
 
-    token = auth.create_token(data={'sub':user.id,'username':user.username,"rol":user.rol})
+    token = auth.create_token(data={'sub':user.id,'username':user.username,"role":user.rol})
     return Token(access_token=token, token_type="Bearer")

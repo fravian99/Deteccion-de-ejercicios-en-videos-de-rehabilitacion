@@ -14,8 +14,6 @@ export class AuthService {
 
   private helper: JwtHelperService = new JwtHelperService();
 
-  private editors = ["admin"]
-
   private tokenStorage = "token"
 
   constructor(private http: HttpClient) {}
@@ -41,6 +39,15 @@ export class AuthService {
     }
     let decodedToken = this.helper.decodeToken(accessToken!);
     return decodedToken.username
+  }
+
+  getRole() {
+    let accessToken = sessionStorage.getItem(this.tokenStorage);
+    if (!accessToken) {
+      return undefined
+    }
+    let decodedToken = this.helper.decodeToken(accessToken!);
+    return decodedToken.role
   }
 
   canEditExercises() {

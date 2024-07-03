@@ -31,10 +31,30 @@ def verify_token(token: str, credential_expection):
     except InvalidTokenError:
         raise credential_expection
     return payload
-    
+
 def get_current_user(token: str = Depends(oauth2_schema)):
+    """
+    Devuelve el id del usuario si el token es valido
+    @param token: token del usuario
+    @return: Id del usuario
+    """
     credential_expection = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                          detail="Could not validate credential",
                                          headers={"WWW-Authenticate":"Bearer"})
-    
-    return verify_token(token,credential_expection)
+
+    payload = verify_token(token,credential_expection)
+    user_id: int = payload.get('sub')
+    return user_id
+
+def get_editor_user(token: str = Depends(oauth2_schema)):
+    credential_expection = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
+                                         detail="Could not validate credential",
+                                         headers={"WWW-Authenticate":"Bearer"})
+
+    payload = verify_token(token,credential_expection)
+    role: int = payload.get('role')
+    user_id: int = payload.get('sub')
+    if role in settings.CAN_EDIT_ROLES:
+        return user_id
+    else:
+        raise credential_expection

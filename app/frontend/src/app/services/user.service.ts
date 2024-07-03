@@ -13,6 +13,8 @@ export class UserService {
 
   username: string | undefined = undefined;
 
+  private editors = ["admin"]
+
   headers = new HttpHeaders({
     Authorization: `Bearer ${sessionStorage.getItem('token')}`
   });
@@ -30,5 +32,21 @@ export class UserService {
   getUsername() {
     this.username = this.auth.getUserName()
     return this.username
+  }
+
+  canEdit() {
+    let role = this.auth.getRole()
+    if (role && this.editors.includes(role)) {
+      return true;
+    }
+    return false;
+  }
+
+  isLogged() {
+    if (this.auth.getAccessToken() != null && this.auth.getAccessToken() != undefined) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
