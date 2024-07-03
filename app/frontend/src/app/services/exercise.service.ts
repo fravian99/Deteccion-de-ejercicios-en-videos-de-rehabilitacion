@@ -55,4 +55,8 @@ export class ExerciseService {
       })
     );
   }
+
+  deleteExercise(id: number) {
+    return this.http.delete(this.exerciseUrl + 'delete-exercise/' + id);
+  }
 }

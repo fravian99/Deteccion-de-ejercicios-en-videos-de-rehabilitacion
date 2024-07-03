@@ -19,6 +19,7 @@ import { HttpRequestInterceptor } from './interceptors/http-request.interceptor'
 import { ExercisesComponent } from './exercises/exercises.component';
 import { CompareExerciseComponent } from './compare-exercise/compare-exercise.component';
 import { FooterComponent } from './footer/footer.component';
+import { DeleteExerciseComponent } from './delete-exercise/delete-exercise.component' 
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -36,7 +37,8 @@ export function createTranslateLoader(http: HttpClient) {
     NewExerciseComponent,
     ExercisesComponent,
     CompareExerciseComponent,
-    FooterComponent
+    FooterComponent,
+    DeleteExerciseComponent
   ],
   imports: [
     BrowserModule,

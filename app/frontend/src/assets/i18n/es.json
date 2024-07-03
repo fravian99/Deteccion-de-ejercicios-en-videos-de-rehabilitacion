@@ -31,5 +31,20 @@
         "send": "Enviar",
         "score": "Puntuación",
         "confirm": "Confirmar"
+    },
+    "delete-exercise" : {
+        "title": "Borrar ejercicio",
+        "press-button": "Presiona el botón del ejercicio que quiere borrar.",
+        "delete": "Borrar",
+        "deleting": {
+            "title": "¿Estas seguro?",
+            "text": "Seguro de que quieres borrar este ejercicio",
+            "confirm": "Borrar",
+            "cancel": "Cancelar"
+        },
+        "deleted": {
+            "title": "Borrado",
+            "text": "Ejercicio borrado correctamente"
+        }
     }
 }
