@@ -2,14 +2,31 @@
     height: 100%;
     white-space: pre-wrap;
 
-    div {
+    .exercise-form{
+        display: flex;
         width: 100%;
-        padding: auto;
-        margin-bottom: 10px;
+        flex-direction: column;
+        //padding: auto;
 
-        label, input {
-            display: block;
+        div :not(.angle-option) {
+            width: 100%;
+            padding: auto;
+            margin-bottom: 10px;
+
+            label, input {
+                display: block;
+            }
+            span {
+                width: 100%;
+            }
+        }
+        .angle-option {
+            width: auto;
+            white-space: pre-wrap;
+
+            input {
+                width: auto;
+            }
         }
     }
-
 }

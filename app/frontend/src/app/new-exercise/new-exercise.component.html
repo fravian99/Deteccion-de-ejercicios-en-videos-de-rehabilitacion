@@ -1,9 +1,12 @@
 <section class="new-exercise">
     <h2>{{"new-exercise.title" | translate}}</h2>
-    <form [formGroup]="newExerciseForm" (ngSubmit)="submitForm()">
+    <div [formGroup]="newExerciseForm" class="exercise-form">
         <div class="exercise-name">
             <label>{{"new-exercise.exercise-name" | translate}}</label>
-            <input type="text" formControlName="name">
+            <mat-form-field>
+                <mat-label>{{"new-exercise.select.exercise-name" | translate}}</mat-label>
+                <input matInput type="text" formControlName="name" [placeholder]="'new-exercise.exercise-name' | translate">
+            </mat-form-field>
         </div>
         <div class ="data-file">
             <label for="file">{{"new-exercise.choose-file" | translate}}</label>
@@ -13,6 +16,28 @@
             <label for="file">{{"new-exercise.choose-video" | translate}}</label>
             <input type="file" (change)="onVideoPicked($event)">
         </div>
-        <button type="submit">{{"new-exercise.confirm" | translate}}</button>
-    </form>
+        <div class="angles-list">
+            <label>{{"new-exercise.angles" | translate }}</label>
+            <mat-form-field >
+                <mat-label>{{"new-exercise.select.angles" | translate }}</mat-label>
+                <mat-select formControlName="angles" multiple [placeholder]="'new-exercise.angles' | translate">
+                    @for (angle of angles; track angles) {
+                    <mat-option [value]="angle.angle">{{angle.angle}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="coords-list">
+            <label>{{"new-exercise.coords" | translate }}</label>
+            <mat-form-field>
+                <mat-label>{{"new-exercise.select.coords" | translate }}</mat-label>
+                <mat-select formControlName="coords" multiple [placeholder]="'new-exercise.coords' | translate">
+                    @for (coord of coords; track coords) {
+                    <mat-option [value]="coord.coord">{{coord.coord}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <button (click)="submitForm()">{{"new-exercise.confirm" | translate}}</button>
+    </div>
 </section>

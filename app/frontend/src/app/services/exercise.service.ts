@@ -21,17 +21,22 @@ export class ExerciseService {
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 
   postNewExercise(exercise: NewExercise) {
-    console.log(exercise)
     //let headers = new HttpHeaders().set('Content-Type', 'multipart/form-data'); 
     const formData = new FormData();
     formData.append('name', exercise.name);
+    for (let angle of exercise.angles) {
+      formData.append('angles', angle);
+    }
+    for (let coord of exercise.coords) {
+      formData.append('coords', coord);
+    }
     formData.append('data', exercise.data);
     formData.append('video', exercise.video);
-    return this.http.post(this.exerciseUrl + 'new-exercise', formData, {headers: this.headers});
+    
+    return this.http.post(this.exerciseUrl + 'new-exercise', formData);
   }
 
   postUserExercise(exercise: UserExercise) {
-    console.log(exercise)
     //let headers = new HttpHeaders().set('Content-Type', 'multipart/form-data'); 
     const formData = new FormData();
     formData.append('data', exercise.data);
@@ -54,6 +59,10 @@ export class ExerciseService {
         return this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(blob));  
       })
     );
+  }
+
+  getDefaultParts() {
+    return this.http.get(this.exerciseUrl + 'default-parts', {headers: this.headers});
   }
 
   deleteExercise(id: number) {
