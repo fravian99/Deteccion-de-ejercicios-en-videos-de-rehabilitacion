@@ -4,11 +4,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from app.database import engine
 from app import models, schemas
+from app.dtw_calc import calc
 from app.routes import exercise, user
 from app.config import settings
 import app.config
 import app.auth as auth
-from app.controllers import user_controller, auth_controller
+from app.controllers import user_controller, auth_controller, parts_controller
 from sqlalchemy.orm import Session
 
 ADMIN = "admin"
@@ -31,6 +32,8 @@ app.add_middleware(CORSMiddleware,
 
 def init_db():
     with Session(engine) as session:
+        parts, angles = calc.get_default_names()
+        parts_controller.initialise_parts(session, angles, parts)
         user = user_controller.get_user_by_username(session, settings.FIRST_SUPERUSER)
         if not user:
             auth_base = schemas.AuthBase(username=settings.FIRST_SUPERUSER, password=settings.FIRST_SUPERUSER_PASSWORD)

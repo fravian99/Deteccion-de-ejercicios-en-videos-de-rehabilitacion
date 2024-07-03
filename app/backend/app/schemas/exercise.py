@@ -1,4 +1,6 @@
+from typing import List
 from pydantic import BaseModel
+from app.schemas.parts import Angle, Coord
 
 class ExerciseName(BaseModel):
     id: int
