@@ -21,6 +21,18 @@ import { CompareExerciseComponent } from './compare-exercise/compare-exercise.co
 import { FooterComponent } from './footer/footer.component';
 import { DeleteExerciseComponent } from './delete-exercise/delete-exercise.component' 
 
+import { MatCommonModule } from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,6 +57,16 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+MatCommonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -52,7 +74,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       },
       defaultLanguage: 'es'
-    })
+    }),
   ],
   providers: [
     provideAnimationsAsync(),
