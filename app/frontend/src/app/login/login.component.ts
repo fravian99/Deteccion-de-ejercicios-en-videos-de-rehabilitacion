@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -34,16 +35,22 @@ export class LoginComponent {
       const formData = new HttpParams()
       .set('grant_type', '')
       .set('username', this.loginForm.value.username)
-      .set('password', this.loginForm.value.password)
+      .set('password', this.loginForm.value.password);
 
 
-      this.userService.login(formData).subscribe(
-        (res: any) => {
-          console.log(res)
+      this.userService.login(formData).subscribe({
+        next: (res: any) => {
           this.authService.setAccessToken(res.access_token);
-          this.loginRedirect()
+          this.loginRedirect();
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: "error",
+            title: err.statusText,
+            text: err.error.detail
+          });
         }
-      );
+      });
     } else {
       this.showErrors = true;
     }
