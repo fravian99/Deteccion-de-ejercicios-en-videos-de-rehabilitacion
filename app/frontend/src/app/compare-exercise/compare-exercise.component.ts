@@ -47,14 +47,11 @@ export class CompareExerciseComponent implements OnInit{
       let userExercise: UserExercise = new UserExercise();
       userExercise.id = this.id;
       userExercise.data = this.file;
-      console.log(this.file)
       this.exerciseService.postUserExercise(userExercise).subscribe({
         next: (res: any) => {
           this.score = res;
-          console.log(res)
         }
       });
     }
-    console.log(this.file)
   }
 }

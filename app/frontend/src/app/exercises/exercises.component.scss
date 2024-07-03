@@ -3,13 +3,23 @@
     width: 100%;
     white-space: pre-wrap;
 
-    div {
+    .exercise-list {
         width: 100%;
         padding: auto;
         margin-bottom: 10px;
 
         label, input {
             display: block;
+            padding-bottom: 10px;
+        }
+        .exercise-option {
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+            
+            button {
+                width: 70%;
+            }
         }
     }
 
