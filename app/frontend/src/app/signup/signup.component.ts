@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -30,6 +31,13 @@ export class SignupComponent {
           if (res) {
             this.router.navigate(['home'])
           }
+        }, 
+        error: (err) => {
+          Swal.fire({
+            icon: "error",
+            title: err.statusText,
+            text: err.error.detail
+          });
         }
       });
     } else {

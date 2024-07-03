@@ -1,15 +1,36 @@
 .signup {
     height: 100%;
     white-space: pre-wrap;
+    mat-card {
+        width: 80%;
+        .signup-form {
+            min-width: 80%;
+            padding: auto;
+            div {
+                width: 80%;
+                margin: auto;
+                margin-bottom: 10px;
 
-    div {
-        width: 100%;
-        padding: auto;
-        margin-bottom: 10px;
-
-        label, input {
-            display: block;
+                label, input, mat-form-field {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+        mat-card-title,
+        mat-card-content {
+            display: flex;
+            justify-content: center;
+        }
+        .buttons {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            button {
+                margin: auto 8px ;
+                margin-bottom: 10px;
+                width: 30%;
+            }
         }
     }
-
 }

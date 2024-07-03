@@ -1,14 +1,27 @@
 <section class="signup">
-    <h2>{{"signup.title" | translate}}</h2>
-    <form [formGroup]="signupForm" (ngSubmit)="submitForm()">
-        <div class="username">
-            <label>{{"signup.username" | translate}}</label>
-            <input type="text" formControlName="username">
-        </div>
-        <div class ="password">
-            <label>{{"signup.password" | translate}}</label>
-            <input type="password" formControlName="password">
-        </div>
-        <button type="submit">{{"signup.confirm" | translate}}</button>
-    </form>
+    <mat-card>
+        <mat-card-title>{{"signup.title" | translate}}</mat-card-title>
+        <mat-card-content>
+            <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="submitForm()">
+                <div class="username">
+                    <label>{{"signup.username" | translate}}</label>
+                    <mat-form-field>
+                        <mat-label>{{"signup.introduce.username" | translate}}</mat-label>
+                        <input matInput type="text" formControlName="username" required>
+                    </mat-form-field>
+                </div>
+                <div class ="password">
+                    <label>{{"signup.password" | translate}}</label>
+                    <mat-form-field>
+                        <mat-label>{{"signup.introduce.password" | translate}}</mat-label>
+                        <input matInput type="password" formControlName="password" required>
+                    </mat-form-field>
+                </div>
+                <span class="buttons">
+                    <button type="submit">{{"signup.confirm" | translate}}</button>
+                    <button routerLink="/login">{{"login.title" | translate}}</button>
+                </span>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </section>
