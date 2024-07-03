@@ -1,0 +1,22 @@
+<section class="menu">
+    <mat-nav-list>
+        <div *ngIf="userService.isLogged()">
+            <div fxLayout="row" >
+                <button mat-button routerLink="/exercises">{{"exercises.title" | translate}}</button>
+            </div>
+        </div>
+        <div *ngIf="!userService.isLogged()">
+            <button mat-button routerLink="/login">{{"login.title" | translate}}</button>
+            <button mat-button routerLink="/signup">{{"signup.title" | translate}}</button>
+        </div>
+        <div *ngIf="userService.canEdit()">
+            <div fxLayout="row">
+                <button mat-button routerLink="/new-exercise">{{"new-exercise.title" | translate}}</button>
+            </div>
+            <div fxLayout="row" >
+                <button mat-button routerLink="/delete-exercise">{{"delete-exercise.title" | translate}}s</button>
+            </div>
+        </div>
+    </mat-nav-list>
+
+</section>

@@ -8,17 +8,9 @@ import { MainService } from './services/main.service';
 })
 export class AppComponent {
   title = "app.title";
-  video = undefined;
+  toggleFlag: boolean = true;
+
 
   constructor(private mainService: MainService) {
-    this.mainService.testApi().subscribe(
-      (res: any) => {
-        if (res) {
-          console.log(res.message);
-        } else {
-          console.log("error")
-        }
-      }
-    );
   }
 }

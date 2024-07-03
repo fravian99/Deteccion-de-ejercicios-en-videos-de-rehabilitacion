@@ -20,6 +20,7 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { CompareExerciseComponent } from './compare-exercise/compare-exercise.component';
 import { FooterComponent } from './footer/footer.component';
 import { DeleteExerciseComponent } from './delete-exercise/delete-exercise.component' 
+import { MenuComponent } from './menu/menu.component';
 
 import { MatCommonModule } from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -50,14 +51,15 @@ export function createTranslateLoader(http: HttpClient) {
     ExercisesComponent,
     CompareExerciseComponent,
     FooterComponent,
-    DeleteExerciseComponent
+    DeleteExerciseComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-MatCommonModule,
+    MatCommonModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,

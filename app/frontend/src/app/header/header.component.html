@@ -1,8 +1,9 @@
-<header class="section-header">
+<mat-toolbar class="section-header">
+    <button mat-icon-button (click)="emitToggle()"><mat-icon>menu</mat-icon></button>
     <span class="title-span">
         <label routerLink="/">{{"app.title" |  translate}}</label>
     </span>
-    <span class="user">
+    <span *ngIf="userService.isLogged()" class="user">
         {{userService.username}}
         <div class="logout-btn" (click)="logOut()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -11,4 +12,4 @@
           </svg>
         </div>
     </span>
-</header>
+</mat-toolbar>
