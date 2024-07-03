@@ -7,19 +7,39 @@
         "exercise-name": "Nombre del ejercicio",
         "choose-file": "Elige un fichero",
         "choose-video": "Elige un video",
-        "confirm": "Confirmar"
+        "angles": "Ángulos",
+        "coords": "Coords",
+        "confirm": "Confirmar",
+        "saved": {
+            "title": "Guardado",
+            "text": "Se ha guardado correctamente",
+            "confirm": "Ok"
+        },
+        "select": {
+            "exercise-name": "Introduce el nombre del ejercicio",
+            "angles": "Selecciona los ángulos a evaluar",
+            "coords": "Selecciona las coordenadas a evaluar"
+        }
     },
     "login": {
         "title": "Inicio de sesión",
         "username": "Usuario",
         "password": "Contraseña",
-        "confirm": "Confirmar"
+        "confirm": "Confirmar",
+        "introduce": {
+            "username": "Introduzca el usuario",
+            "password": "Introduzca la contraseña"
+        }
     },
     "signup": {
         "title": "Crear cuenta",
         "username": "Usuario",
         "password": "Contraseña",
-        "confirm": "Confirmar"
+        "confirm": "Confirmar",
+        "introduce": {
+            "username": "Introduzca el usuario",
+            "password": "Introduzca la contraseña"
+        }
     },
     "exercises": {
         "title": "Ejercicios",
@@ -27,6 +47,7 @@
     },
     "compare": {
         "title": "Comparador",
+        "exercise-title": "Ejercicio:",
         "choose-file": "Elige un fichero",
         "send": "Enviar",
         "score": "Puntuación",
