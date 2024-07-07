@@ -1,4 +1,22 @@
 \capitulo{7}{Conclusiones y Líneas de trabajo futuras}
 
-Todo proyecto debe incluir las conclusiones que se derivan de su desarrollo. Éstas pueden ser de diferente índole, dependiendo de la tipología del proyecto, pero normalmente van a estar presentes un conjunto de conclusiones relacionadas con los resultados del proyecto y un conjunto de conclusiones técnicas. 
-Además, resulta muy útil realizar un informe crítico indicando cómo se puede mejorar el proyecto, o cómo se puede continuar trabajando en la línea del proyecto realizado. 
+En este apartado se van a mostrar las conclusiones que han resultado de la realización del proyecto así como posibles futuras investigaciones y proyectos.
+
+\section{Conclusiones}
+Como primera conclusión cabe destacar las dificultades que pueden causar en un problema como es la comparación y puntuación de ejercicios el no tener un set de datos lo suficientemente grande, en el caso de los ejercicios grabados por pacientes sanos solo se disponían de un máximo de tres vídeos y muchos de los ficheros de datos de los ejercicios de los pacientes no tenían el vídeo correspondiente, lo que limita enormemente la formas de solucionarlo y el poder verificar que las puntuaciones sean correctas.
+
+Aun así se han conseguido resultados aceptables en el caso de usar solo las distancias obtenidas de las posiciones y no de los ángulos. Me alegra haber podido participar en este proyecto, ha sido una gran oportunidad para poder ayudar a mejorar la calidad de vida de personas necesitadas.
+
+Otra cosa que he podido obtener conocimientos sobre el desarrollo web de aplicaciones simulando entornos de desarrollo y producción. También he aprendido sobre los contenedores de \textit{Docker}, que ha sido algo que me ha interesado desde el inicio del proyecto. 
+
+\section{Lineas futuras}
+Algunas de las mejoras y lineas siguientes que se podrían estudiar son las siguientes:
+\begin{enumerate}
+	\item Investigar la obtención de la puntuación mediante los modelos ocultos de \textit{Markov}, para ello será necesario tener un set de datos más grande.
+	\item Mejorar el sistema de detección de movimientos, ya que esto ayudaría a obtener una puntuación mejor. Se observo que a veces, se detectaban mal los esqueletos en algunos fotogramas o valores nulos en alguna de sus partes del cuerpo.
+	\item La aplicación es una muestra de los resultados de la investigación, pero se pueden añadir más funciones e incluso unificar con el resto de la investigación.  El \textit{frontend} se ha desarrollado pensando en ser fácilmente extensible por este motivo.
+	\item Mejoras de accesibilidad en la aplicación, inicialmente se pensó en añadir la función de cambiar idioma, pero por motivos de tiempo no se pudo hacer. Actualmente los textos se obtienen de un archivo JSON mediante \textit{ngx-translate}. Sería interesante el que pacientes que no hablen español puedan usarla.
+	\item Investigar librerías alternativas para poder detectar poses, ya que como se mencionó anteriormente no se lanzan nuevas versiones de Detectron precompiladas desde 2021.
+	
+	
+\end{enumerate}
