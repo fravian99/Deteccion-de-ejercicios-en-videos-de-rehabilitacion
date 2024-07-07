@@ -4,74 +4,96 @@ En este apartado se explicarán las herramientas utilizadas para el trabajo.
 
 \tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
 { \multicolumn{1}{l}{Herramientas} & Pruebas & App & Memoria \\}{ 
-	Jupyter & X & & \\
-	Git + Github + Gittyup & X & X & X\\
+	Git + GitHub + Gittyup & X & X & X\\
 	\LaTeX + TexStudio & & & X\\
-	
+	Zube & X & X & X \\
+	Visual Studio Code & X & X & X \\
+	Python & X & X & \\
+	Jupyter & X & & \\
+	FastAPI + Pydantic & & X & \\
+	Dtaidistance & X & X & \\
+	Pandas + Numpy & X & X & \\
+	Angular + Angular Material & & X & \\
+	Nginx & & X & \\
+	Docker & & X & \\	
+	PostgreSQL & & X & \\
+	SQLAlchemy & & X & \\
 } 
 
 \section{\LaTeX}
-\LaTeX es un sistema de composición de textos orientado a la creación de documentos escritos que presenten una alta calidad tipográfica. ~\cite{wiki:latex}
+\LaTeX\space es un sistema de composición de textos orientado a la creación de documentos escritos que presenten una alta calidad tipográfica \cite{wiki:latex}.
 
 \section{TeXstudio}
-\textit{TeXstudio} es un editor de \LaTeX de código abierto y multiplataforma. ~\cite{wiki:textudio} 
+\textit{TeXstudio} es un editor de \LaTeX\space de código abierto y multiplataforma \cite{wiki:textudio}. 
 Ofrece la posibilidad de escribir la memoria de forma local fácilmente. También se contempló la alternativa de usar Overleaf, ya que no requiere instalación, pero finalmente se eligió por TeXstudio ya que al simplificaba el no tener que descargar el documento cada vez que se quisiera actualizar la versión en el repositorio de Github.
 
-\section{Git}
-\textit{Git} es un programa de control de versiones. 
+\section{Control de versiones}
+
+\begin{itemize}
+\item \textit{Git} es un programa de control de versiones. 
 Muy útil para poder ver los cambios que se van realizando a medida que avanza el proyecto así como volver a versiones anteriores para deshacer cambios.
 
-\section{Github}
-\textit{Github} es una plataforma online que utiliza Git para guardar repositorios y ajustar la visibilidad de los mismos. 
+\item \textit{GitHub} es una plataforma online que utiliza Git para guardar repositorios y ajustar la visibilidad de los mismos. Tambien permite reportar errores en la sección \textit{Issues} y crear bifurcaciones del código mediante la creación de \textit{forks}. 
 
-\section{Gittyup}
-\textit{Gittyup} permite utilizar Git a través de una interfaz gráfica, es una alternativa a programas como Fork que no están disponibles en Linux. Además, es de código abierto.
+\item \textit{Gittyup} permite utilizar Git a través de una interfaz gráfica, es una alternativa a programas como Fork que no están disponibles en Linux. Además, es de código abierto.
 
-\section{Zube}
-\textit{Zube} es una página web dirigida a la planificación de proyectos utilizando metodologías ágiles como \textit{Scrum} y \textit{Kanban}.
+\item \textit{Zube} es una página web dirigida a la planificación de proyectos utilizando metodologías ágiles como el marco de trabajo \textit{Scrum} y \textit{Kanban}.
+\end{itemize}
 
 \section{Visual Studio Code}
-\textit{Visual Studio Code} (también llamado VS Code) es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web. \cite{wiki:visualstudiocode}
-
-
+\textit{Visual Studio Code} (también llamado VS Code) es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web \cite{wiki:visualstudiocode}. Además, permite multitud de lenguajes gracias al uso de extensiones.
 
 \section{Detectron2}
-\textit{Detectron2} es una librería de python destinada a la detección y segmentación de imágenes. 
+\textit{Detectron2} es una librería de Python destinada a la detección y segmentación de imágenes. Algo que se observó es que la ultima versión que viene compilada es la versión 0.6, que salió por ultima vez en 2021. 
+
+\section{Python}
+\textit{Python} es un lenguaje de programación de alto nivel, multiplataforma y de código abierto que usa tipado dinámico.
+
+\section{Jupyter Notebook}
+Los cuadernos de \textit{Jupyter} pueden contener en un mismo archivo texto, código, los resultados de la ejecución de ese código, material multimedia y ecuaciones, lo que les brinda de una gran versatilidad y razón por la cual se suelen usar en ámbitos de investigación.
 
 \section{Librerías de Python}
-\subsection{Pandas}
-Pandas es una librería de código abierto para análisis y manipulación de datos. \cite{pandas}
+\begin{itemize}
+\item \textit{Pandas} es una librería de código abierto para análisis y manipulación de datos \cite{pandas}.  Permite trabajar los datos mediante unas clases llamadas DataFrames, que además se pueden guardar de forma sencilla.
 
-\subsection{Numpy}
-\textit{Numpy} es una librería que facilita el trabajar con matrices en Python.
+\item \textit{Numpy} es una librería que facilita el trabajar con matrices en Python, facilitando realizar operaciones sobre ellas.
 
-\subsection{Dtaidistance}
-Una librería que implementa distintas funciones relacionadas con DTW.
+\item \textit{Dtaidistance} es una librería que implementa distintas funciones relacionadas con DTW. Ofrece tanto implementaciones en Python como en C, siendo esta segunda mucho más rápida. Para usar las versiones de C, basta con añadir \textit{fast} a los nombres de los metodos y usar \textit{arrays} de la librería Numpy
 
-\subsection{FastDTW}
-FastDTW es una librería de Python  que implementa una aproximación de DTW que tiene una complejidad lineal en tiempo y espacio. \cite{Salvador2004FastDTWTA}
-Finalmente se descarto su uso ya que dicha librería no se ha actualizado desde hace tiempo y cambios en las dependencias provocaban errores.
+\item \textit{FastDTW} es una librería de Python  que implementa una aproximación de DTW que tiene una complejidad lineal en tiempo y espacio \cite{Salvador2004FastDTWTA}.
+La librería no se ha actualizado desde hace tiempo y cambios en las dependencias provocaban errores por lo que se descarto su uso.
+\end{itemize}
 
 \section {Tecnologías para desarrollar la aplicación}
-Se decidió realizar una aplicación web, en la que se divide el backend del frontend y se comunican mediante el uso de una API. Esto ofrece ventajas como pueden ser:
+Se decidió realizar una aplicación web, en la que se divide el \textit{backend} del \textit{frontend} y se comunican mediante el uso de una API. Esto ofrece ventajas como pueden ser:
 \begin{itemize}
-	\item  Accesibilidad: el usuario no tendría que instalar nada,  simplemente buscar la url en un navegador, por lo que no necesita tener conocimientos avanzados de informática.
-	\item Compatibilidad: El usuario podrá acceder a la aplicación  independientemente de la aplicación, siempre que tenga un navegador compatible.
+	\item  \textbf{Accesibilidad}: el usuario no tendría que instalar nada,  simplemente buscar la url en un navegador, por lo que no necesita tener conocimientos avanzados de informática.
+	\item \textbf{Compatibilidad}: El usuario podrá acceder a la aplicación  independientemente de la aplicación, siempre que tenga un navegador compatible.
 \end{itemize}
 
 \subsection{Angular}
-Angular es un framework de código abierto desarrollado por Google que permite el desarrollo de frontend de forma sencilla, usa una arquitectura basada en componentes, lo que  permite crear elementos encapsulados reutilizables. Usa Typescript,  HTML y SCSS.
+\textit{Angular} es un framework de código abierto desarrollado por Google que permite el desarrollo de \textit{frontend} de forma sencilla, usa una arquitectura basada en componentes, lo que  permite crear elementos encapsulados reutilizables. Usa Typescript,  HTML y SCSS.
+
+\subsection{Angular Material}
+\textit{Angular Material} es una librería de Angular que permite gestionar aspectos globales de la interfaz como son las paletas de colores y las fuentes. También ofrece una gran variedad de componentes para poder utilizar.
 
 \subsection{FastAPI}
-FastAPI es un framework que permite crear APIs en Python para el backend de aplicaciones web.
-
-\subsection{Docker}
-Docker permite la creación de contenedores aislados, y despliegue de los mismos no haciendo falta instalar en el sistema anfitrión las dependencias del software que se va a ejecutar en los contenedores, ya que se instala en los mismos de forma automatizada. 
-
-\subsection{Nginx}
-Es un servidor web de código abierto, se usara para ejecutar el frontend  de Angular de la aplicación.
+\textit{FastAPI} es un framework que permite crear APIs en Python para el backend de aplicaciones web.
 
 \subsection{PostgreSQL}
-PostgreSQL es un sistema de gestión de bases de datos relacionales de código abierto.
+\textit{PostgreSQL} es un sistema de gestión de bases de datos relacionales de código abierto.
 
 \subsection{SQLAlchemy}
+\textit{SQLAlchemy} es una librería de Python para poder realizar consultas mediante el Mapeo Objeto-Relacional (ORM), a través de la creación de clases en Python que representan las tablas y permite utilizar métodos para obtener la información y administrarla.
+
+\subsection{Pydantic}
+\textit{Pydantic} es una librería de Python que permite la gestión de modelos mediante el uso del patrón Data Transfer Object (DTO).
+
+\subsection{Docker}
+\textit{Docker} permite la creación de contenedores aislados, y despliegue de los mismos no haciendo falta instalar en el sistema anfitrión las dependencias del software que se va a ejecutar en los contenedores, ya que se instala en los mismos de forma automatizada. 
+
+\subsection{Nginx}
+\textit{Nginx} es un servidor web de código abierto, se usara para ejecutar el \textit{frontend}  de Angular de la aplicación.
+
+
+
