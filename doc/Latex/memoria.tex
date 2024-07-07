@@ -1,5 +1,28 @@
 \documentclass[a4paper,12pt,twoside]{memoir}
 
+\usepackage{listings}
+
+\usepackage{inconsolata}
+\lstset{
+	language=bash, %% Troque para PHP, C, Java, etc... bash é o padrão
+	basicstyle=\ttfamily\small,
+	numberstyle=\footnotesize,
+	numbers=left,
+	backgroundcolor=\color{gray!10},
+	frame=single,
+	tabsize=2,
+	rulecolor=\color{black!30},
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	breaklines=true,
+	breakatwhitespace=true,
+	framextopmargin=2pt,
+	framexbottommargin=2pt,
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ó}{{\'o}}1 {í}{{\'i}}1
+}
+
 % Castellano
 \usepackage[spanish,es-tabla]{babel}
 \selectlanguage{spanish}
@@ -352,10 +375,10 @@
   }
 \makeatother
 
-\newcommand{\nombre}{Nombre del alumno} %%% cambio de comando
+\newcommand{\nombre}{Luis Ángel Espinosa Lafuente} %%% cambio de comando
 
 % Datos de portada
-\title{título del TFG}
+\title{Detección de ejercicios en vídeos de rehabilitación}
 \author{\nombre}
 \tutor{José Luis Garrido Labrador y José Miguel Ramírez Sanz}
 \date{\today}
@@ -422,12 +445,16 @@ D. José Miguel Ramírez Sanz
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
+La enfermedad de Parkinson es una enfermedad neurodegenerativa que afecta principalmente a las personas mayores, por lo que es importante que puedan realizar ejercicios de rehabilitación que les permitan retrasar los efectos de la enfermedad lo máximo posible, por ello numerosos estudios buscan ofrecer a los pacientes la posibilidad de realizar los ejercicios de forma telemática.
+
+Este trabajo pretende encontrar una forma de automatizar dicho proceso dando una valoración al usuario de cuan bien se ha realizado el ejercicio comparando ese vídeo con el de un profesional. Para ello se parte de los trabajos de fin de máster de José Miguel Ramírez Sanz y José Luis Garrido Labrador, tutores de este trabajo, en los que se obtenía un esqueleto por cada frame de un vídeo de ejercicios y el trabajo de fin de grado de Lucía Nuñéz Calvo en el que se detectaba el inicio y el fin de un ejercicio para poder recortar los vídeos.
+
+Para poder ver los resultados, se desarrollará una aplicación web para que el usuario pueda ver la puntuación de sus ejercicios.
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Palabras separadas por comas que identifiquen el contenido del proyecto Ej: servidor web, buscador de vuelos, android \ldots
+Parkinson, telerehabilitación, secuencias temporales, comparación de vídeos, Dynamic Time Warping, Angular, FastAPI, Docker, investigación.
 \end{abstract}
 
 \clearpage
@@ -435,12 +462,16 @@ Palabras separadas por comas que identifiquen el contenido del proyecto Ej: serv
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-A \textbf{brief} presentation of the topic addressed in the project.
+Parkinson's disease is a neurodegenerative disease that mainly affects the elderly, so it is important that they can perform rehabilitation exercises that allow them to delay the effects of the disease as much as possible, so numerous studies seek to offer patients the ability to perform the exercises telematically.
+
+This work aims to find a way to automate this process by giving an assessment to the user of how well the exercise has been performed by comparing this video with that of a professional. For this purpose, we start from the Master's Final Projects of José Miguel Ramírez Sanz and José Luis Garrido Labrador, tutors of this work, in which a skeleton was obtained for each frame of an exercise video and the Degree's Final Project of Lucía Nuñéz Calvo in which the beginning and the end of an exercise were detected in order to be able to cut the videos.
+
+To be able to see the results, a web application will be developed so that the user can see the score of his exercises.
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-keywords separated by commas.
+Parkinson, telerehabilitation, time sequences, video comparison, Dynamic Time Warping, Angular, FastAPI, Docker, research.
 \end{abstract}
 
 \clearpage
