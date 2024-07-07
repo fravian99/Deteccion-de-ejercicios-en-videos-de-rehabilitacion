@@ -1,22 +1,77 @@
 \capitulo{3}{Conceptos teóricos}
+En esta sección se expondrán diversos conceptos imprescindibles para la comprensión del proyecto.
 
+\section{Minería de datos}
+La minería de datos es un proceso que se utiliza para descubrir patrones, relaciones y tendencias significativas en grandes volúmenes de datos. Para ello se usan técnicas de aprendizaje automático como puede ser la inteligencia artificial.
 
-\section{Normalización} 
-La normalización en el contexto de la ciencia de datos es el proceso para escalar los datos y transformarlos de forma que esten en un rango comun. 
-\subsection{Normalización Min-Max}
-La normalización mini-max es un método que permite estandarizar valores de forma que estén entre el 0 y el 1. 
+\section{Ciencia de datos}
+La ciencia de datos es un campo académico que trata de recolectar, procesar, analizar e interpretar estos datos para extraer información valiosa y presentar resultados que puedan ser utilizados para tomar decisiones.
+
+Para ello, previamente se deben tratar los datos mediante técnicas como las que se expondrán a  continuación.
+\subsection{Normalización} 
+La normalización en el contexto de la ciencia de datos es el proceso para escalar los datos y transformarlos de forma que estén en un rango común. 
+\subsubsection{Normalización Min-Max}
+La normalización min-max es un método que permite estandarizar valores de forma que estén entre el 0 y el 1. 
 \begin{equation}
 	N_i = \frac{X_i - X_{min}}{X_{max} - X_{min}}
 \end{equation}
-\subsection{Normalización Z-score}
+\subsubsection{Normalización Z-score}
+Es una técnica para rescalar los valores de forma que la media de los datos sea 0 y la desviación estándar sea 1.
 \begin{equation}
 	N_i = \frac{X_i - \mu}{\sigma}
 \end{equation}
 
-\subsection{Normalización L2}
+\subsubsection{Normalización L2}
 La normalización L2 es un método que se utiliza para transformar los puntos en un vector unitario. La suma de los cuadrados de las posiciones normalizadas sera igual a 1.
 
-\section{Similitud coseno}
+\begin{equation}
+	||x||_2 = \sqrt{\sum_{i=1}^{n}x^2}
+\end{equation}
+\label{norml2}
+
+\subsection{Traslación}
+La traslación consiste en aplicar movimientos directos sin cambios de orientación manteniendo la forma y el tamaño de las figuras u objetos \cite{traslacion}. En el caso de la traslación en figuras, se cumplen las siguientes características:
+\begin{enumerate}
+	\item La figura trasladada es idéntica a la figura inicial.
+	\item La figura trasladada conserva la orientación de la figura original.
+\end{enumerate}
+En el caso de este trabajo, se trasladara el esqueleto formado por el conjunto de partes del cuerpo, trasladando los puntos de las posiciones que lo forman.
+
+\section{Visión artificial}
+La visión artificial intenta emular la capacidad de algunos seres vivos para ver una escena, entenderla y actuar en consecuencia \cite{visionartificial}. Gracias a la visión artificial es posible extraer las poses de los vídeos de ejercicios.
+\subsection{Segmentación}
+La segmentación es el proceso por el cual una imagen se divide en distintas partes que comparten alguna característica, lo que permite obtener diferentes objetos de la escena. Esto es vital para poder extraer las poses de los vídeos correctamente.
+
+\subsection{Estimación de poses}
+La estimación de poses es la obtención y clasificación de la configuración espacial de las partes del cuerpo en imágenes y vídeos. En el caso de este proyecto se usaron esqueletos en los que se obtuvieron previamente aplicando esta técnica.
+
+Estos esqueletos están formados por distintos puntos, los cuales eran bidimensionales. A partir de estos además se habían calculado los ángulos, que eran unidimensionales.
+\section{Series temporales}
+Una serie temporal esta compuesta por datos ordenados y equidistantes cronológicamente sobre una (serie univariante) o más (serie multivariante) características \cite{seriestemporales}.
+
+En el caso de este proyecto, las series temporales con las que se va a trabajar son las secuencias de cada punto y de cada ángulo obtenidos de los fotogramas de los vídeos. Cuando se tratan las series por tipo de ángulo, son series univariantes, sin embargo, si se comparan todas a la vez seria multivariante. En el caso de las posiciones, al ser de dos dimensiones, son multivariantes, pero se pueden tratar las dimensiones de forma separa o incluso redimensionarlos, de forma que se pueda trabajar con ellas como univariantes.
+
+\section{Programación dinámica}
+La programación dinámica consiste en la división de problemas en subproblemas resolviendo cada problema una sola vez y guardando los resultados para evitar la redundancia \cite{dynprog}. Este método sigue el principio de optimalidad de Bellmean, que se define a continuación:
+
+\begin{quote}
+	Principio de optimalidad: Una política óptima tiene la propiedad de que cualquiera que sea el estado inicial y la decisión inicial, las decisiones restantes deben constituir una política óptima en relación con el estado resultante de la primera decisión \cite{bellman1962applied}.
+	\label{quotebellman}
+\end{quote}
+
+Un ejemplo de esta técnica sería el método de alineamiento de series temporales que usa el Dynamic Time Warping, que se explicará en la sección \ref{dtw}.
+
+
+\section{Distancias}
+De forma general la distancia entre dos puntos se define como el camino más corto entre dos puntos. Hay diversos métodos de calcular esta distancia, entre ellos se expondrán los que se han usado en este proyecto.
+
+\subsection{Distancia euclidiana}
+La distancia euclidiana es la menor distancia entre dos puntos en un espacio de N dimensiones (espacio euclidiano) \cite{distandnorm}.
+\begin{equation}
+	d_{x,y}=\sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}
+\end{equation}
+ 
+\subsection{Similitud coseno}
 La similitud coseno permite diferenciar dos vectores, se utiliza para búsqueda y recuperación de información y comparación de documentos.
 Es uno de los métodos para diferenciar dos posturas de dos imágenes concretas por medio de la similitud de los vectores de las distintas partes del cuerpo.
 
@@ -26,30 +81,118 @@ Es uno de los métodos para diferenciar dos posturas de dos imágenes concretas 
 
 Si el valor de este fuera 1 es que la imagen sería igual, mientras que si fuese 0 serían ortogonales, es decir que no comparten ninguna similitud.
 
-\section{Dynamic time warping}
-La deformación dinámica permite comparar dos secuencias temporales en la que se realizan los movimientos a distintas velocidades.
+\section{Dynamic Time Warping}
+\label{dtw}
+La deformación dinámica o Dynamic Time Warping en inglés permite acoplar dos series temporales que no tienen porque tener ni el mismo tamaño ni la misma forma, en el caso de este proyecto secuencias de movimientos a distintas velocidades. Este algoritmo es muy utilizado en reconocimiento de audio.
 
-\imagen{img/warp}{Alineamiento de dos secuencias mediante DTW}{0.8}
+\imagen{img/warp}{Alineamiento de dos secuencias mediante DTW}{0.7}
+
+Dadas dos señales $X:=(x_1, x_2, ..., x_N)$ e $Y:=(y_1, y_2, ..., y_M)$, el objetivo de DTW será encontrar la alineación optima devolviendo la distancia entre ellas. Para ello, como se explicara de forma detallada en las siguientes subsecciones, se calculan dos matrices, una de costes locales y una de costes acumulados y después se obtiene la ruta optima.
 
 \subsection{Matriz de costes locales}
-Esta técnica se realiza mediante la comparación de las distancias de todos los pares de puntos en dos secuencias. Una distancia menor implica que estos puntos pueden ser candidatos a ser emparejados. \cite{dwt:dwtdescription}
+Esta técnica se realiza mediante la comparación de las distancias de todos los pares de puntos en dos secuencias. Una distancia menor implica que estos puntos pueden ser candidatos a ser emparejados \cite{dwt:dwtdescription}.  La formula que define esta matriz es la siguiente:
+\begin{equation}
+	C(i, j) := c(x_i, y_j)
+\end{equation}
+\[i \in [1:N]\]
+\[j \in [1:M]\]
 
+Para esta matriz se debe elegir una medida de distancia entre dos puntos, en el caso de este trabajo se escogió la distancia euclidiana.
 
 \subsection{Matriz de costes acumulados}
-Una vez emparejados los puntos se usa una matriz de costes acumulados.\cite{s19132882}
-
-En la matriz de costes acumulados se inicializan los valores de la siguiente manera:
+Una vez emparejados los puntos se usa una matriz de costes acumulados $\emph{D}_{N\times M}$   \cite{dtw:formulas1, dtw:formulas2}. En esta parte se usa la programación dinámica para calculara la distancia DTW. En la matriz de costes acumulados se inicializan los valores mediante las siguientes formulas:
 \begin{enumerate}
 	\item  La primera fila:
 	\begin{equation}
-		D(1,j) = C(1,j)
-	\end{equation}
+	D(1,j) = \sum_{k=1}^{j}C(1,k)
+	\end{equation} 
+	\[j \in [1:M]\]
 	\item La primera columna:
 	\begin{equation}
 		D(i,1) = \sum_{k=1}^{i}C(k,1)
 	\end{equation} 
-	\item El resto:
+	\[i \in [1:N]\]
+	\item El resto aplicando la siguiente formula de forma recursiva:
 	\begin{equation}
 		D(i,j) = \min\{D(i-1, j-1),D(i-1,j),D(i,j-1)\} + C(i,j)
 	\end{equation}
+	\[i \in [2:N]\]
+	\[j \in [2:M]\]
 \end{enumerate}
+Donde C es la matriz de costes locales. Una vez aplicadas las formulas, la distancia acumulada será $D(N, M)$.
+
+\subsection{Camino de deformación}
+El camino de deformación consiste en la alineación entre dos secuencias, este camino debe cumplir las siguientes condiciones \cite{dtw:deformación}:
+\begin{enumerate}
+	\item Monotonicidad: Los puntos deben estar ordenados con respecto al tiempo.
+	\begin{equation}
+		x_{k-1} <= x_k \quad \& \quad y_{k-1} <= y_k
+	\end{equation}
+	\item Continuidad: El siguiente punto debe ser vecino del anterior.
+	\begin{equation}
+		x_k - x_{k-1} <= 1 \quad \& \quad y_k - y_{k-1} <= 1
+	\end{equation}
+	\item Condiciones de frontera: Los puntos de inicio y fin deben ambas señales son emparejados entre ellos. 
+	\begin{equation}
+		x_1=1, y_1=1 \quad \& \quad x_k = n, y_k = m 
+	\end{equation}
+\end{enumerate}
+
+\subsection{Ruta óptima}
+DTW permite la extracción del camino óptimo a través de la matriz de costes acumulados mediante el uso de un algoritmo voraz. Realizando tres tipos de movimientos desde D(N, M) hasta D(0,0) utilizando backtracking:
+\begin{enumerate}
+	\item \textbf{Movimientos horizontales}: $D(i,j)\Longrightarrow D(i, j-1) $
+	\item \textbf{Movimientos verticales}: $D(i,j)\Longrightarrow D(i-1, j) $
+	\item \textbf{Movimientos diagonales}: $D(i,j)\Longrightarrow D(i-1, j-1) $
+\end{enumerate}
+Se elegirá cada movimiento en función del que lleve a una posición con el menor coste. 
+
+\section{Modelos ocultos de Markov}
+Un modelo oculto de Markov, Hidden Markov Model en inglés con el acrónimo \textit{HMM} es un modelo estadístico que consta de una cadena de Markov no observada y una cadena observada la cual donde la cadena observada depende probabilísticamente de la cadena no observada. Estas cadenas están formadas por estados, el objetivo es conocer el valor del estado no observado mediante el valor observado. Los modelos ocultos de Markov tienen cinco elementos \cite{99324907003}:
+\begin{enumerate}
+	\item Un conjunto de estados ocultos $\{S_1, S_2, \ldots, S_N\}$.
+	\item Un conjunto de observaciones posibles $\{O_1, O_2, \ldots, O_T\}$.
+	\item Una matriz de transición $A = [a_{ij}]$, donde $a_{ij}$ es la probabilidad de transitar del estado $S_i$ al estado $S_j$.
+	\item Una matriz de emisión $B = [b_j(k)]$, donde $b_j(k)$ es la probabilidad de observar $O_k$ dado el estado $S_j$.
+	\item Una distribución inicial $\pi = [\pi_i]$, donde $\pi_i$ es la probabilidad de que el estado inicial sea $S_i$.
+\end{enumerate}
+
+\subsection{Algoritmo de Viterbi}
+Dado un modelo oculto de Markov con un conjunto de estados ocultos $S= \{S_1, S_2, \ldots, S_N\}$ y una secuencia de $T$ observaciones $O =\{O_1, O_2, \ldots, O_T\}$, el algoritmo de Viterbi encontrará la secuencia de estados que tiene la mayor probabilidad de haber generado esas observaciones. Este algoritmo consiste en \cite{algoViterbi, algoViterbi2}:
+
+\subsubsection{Inicialización}
+Para $1 \leq i \leq N$:
+\begin{equation}
+	\delta_1(i) = \pi_i \cdot b_i(O_1)
+\end{equation}
+\begin{equation}
+	\psi_1(i) = 0
+\end{equation}
+Donde $\delta_t(i)$ es la probabilidad máxima de la secuencia de estados que termina en $S_i$ en el tiempo $t$ y $\psi_t(i)$ es el estado que maximiza $\delta_t(i)$.
+
+\subsubsection{Recursión}
+Para $2 \leq t \leq T$ y $1 \leq j \leq N$:
+\begin{equation}
+	\delta_t(j) = \max_{1 \leq i \leq N} [\delta_{t-1}(i) \cdot a_{ij}] \cdot b_j(O_t)
+\end{equation}
+\begin{equation}
+	\psi_t(j) = \arg\max_{1 \leq i \leq N} [\delta_{t-1}(i) \cdot a_{ij}]
+\end{equation}
+Donde $\delta_t(j)$ se actualiza con la máxima probabilidad de llegar al estado $S_j$ en el tiempo $t$ considerando todas las posibles transiciones desde el tiempo $t-1$.
+
+\subsubsection{Terminación}
+\begin{equation}
+	P^* = \max_{1 \leq i \leq N} \delta_T(i)
+\end{equation}
+\begin{equation}
+	q_T^* = \arg\max_{1 \leq i \leq N} \delta_T(i)
+\end{equation}
+Donde $P^*$ es la probabilidad de la secuencia de estados más probable y $q_T^*$ es el último estado de esa secuencia.
+
+\subsubsection{Rastreo hacia atrás}
+Para $t = T-1, T-2, \ldots, 1$:
+\begin{equation}
+	q_t^* = \psi_{t+1}(q_{t+1}^*)
+\end{equation}
+Esta etapa se utiliza para reconstruir la secuencia de estados óptima a partir de los valores almacenados en $\psi$.
+
