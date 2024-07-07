@@ -1,3 +1,16 @@
 \capitulo{6}{Trabajos relacionados}
 
-Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
+En este apartado se mencionan artículos que aportan nuevos conocimientos en la puntuación de ejercicios.
+
+\section{Dance Performance Evaluation Using Hidden Markov Models \cite{danceperf}}
+Este articulo, realizado por la Universidad de Mons, usa los modelos ocultos de Markov para comparar las series temporales descomponiendo los movimientos en estados y aplicando el algoritmo de Viterbi para obtener la puntuación de cuan bien se ha realizado un baile.
+
+\section{A Dynamic Time Warping Based Algorithm to Evaluate Kinect-Enabled Home-Based Physical Rehabilitation Exercises for Older People \cite{dtw:formulas2}}
+En este trabajo se obtiene una puntuación de ejercicios de Tai Chi, para ello, se tomaron las posiciones de las extremidades superiores e inferiores, se calcularon las diferencias entre el esqueleto del paciente y del profesional mediante la aplicación de la similitud coseno en los esqueletos del usuario y del profesional. 
+
+Después se aplicó DTW para obtener una puntuación, para ello tiene en cuenta que la máxima diferencia de ángulos entre los correspondientes a dos de los vectores formados por los huesos son 90º en esos ejercicios. Gracias a esto es capaz de tener una puntuación de rendimiento, en forma de porcentaje.
+
+Se aplicó esta metodología sobre ejercicios de Tai Chi sobre 21 participantes distintos. El resultado de este estudió fue un algoritmo basado en DTW que permitiría el evaluar de forma autónoma los ejercicios de rehabilitación.
+
+\section{A Wireless Evaluation System for In-home Physical Rehabilitation  \cite{7979089}}
+Esta investigación trata de aportar una retroalimentación al usuario de como de bien o mal a realizado un ejercicio físico de rehabilitación, para ello obtiene una esqueleto 3D en el que usa la distancia DTW por parte del cuerpo para clasificar los ejercicios en "bueno"\space y "malo", en este caso, al igual que el anterior. 
