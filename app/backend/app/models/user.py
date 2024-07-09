@@ -3,7 +3,10 @@ from app.database import Base
 import uuid
 
 class User(Base):
-    __tablename__ = "User"
+    """
+    Tabla que contiene los usuarios
+    """
+    __tablename__ = "USER"
     id = Column(String, primary_key=True)
     username = Column(String, unique=True, nullable=False)
     rol = Column(String, default="paciente")

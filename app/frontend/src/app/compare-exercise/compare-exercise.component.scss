@@ -9,12 +9,9 @@
         height: 100%;
 
         .exercise {
-            //display: flex;
             height: max-content;
             min-width: 60%;
             padding-right: 30px;
-            //align-items: start;
-            //flex-direction: column;
             
             app-video-player {
                 display: "flex";
@@ -28,17 +25,9 @@
             height: fit-content;
             min-width: 20%;
             margin-top: 30px;
-           
-            //align-self: self-start;
             *{
                 padding-bottom: 10px;
             }
-
-        }
-
-        .exercise {
-            //display: inline-block;
         }
     }
-
 }

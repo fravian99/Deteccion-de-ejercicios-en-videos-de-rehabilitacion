@@ -9,7 +9,7 @@ class Credentials(Base):
     """
     Tabla que contiene las contraseñas
     """
-    __tablename__ = "Credentials"
+    __tablename__ = "CREDENTIALS"
     id = Column(String, ForeignKey(User.id), primary_key=True)
     password = Column(String, nullable=False)
 

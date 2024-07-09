@@ -37,7 +37,7 @@ def compare(file1, file2, positions= body_names, angles = angles_names):
     distance1 = distance_dtw_angles(data1, data2)
     distance2 = distance_dtw_pos(data1, data2, positions)
 
-    return distance2
+    return round(distance2, 2)
 
 def get_default_names():
     return body_names, angles_names

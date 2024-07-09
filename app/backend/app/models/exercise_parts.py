@@ -1,8 +1,9 @@
 from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
 from app.database import Base
 from app.models.exercise import Exercise
 from app.models.parts import Coord, Angle
-from sqlalchemy.orm import relationship
+
 
 class ExerciseCoord(Base):
     __tablename__ = "EXERCISE_COORD"

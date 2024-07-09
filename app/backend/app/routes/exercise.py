@@ -11,7 +11,6 @@ from app.controllers import exercise_controller, parts_controller
 from app.models import Exercise
 from app.dtw_calc.calc import compare
 
-from sqlalchemy.orm import Session
 
 router = APIRouter(
     prefix='/exercise',
@@ -29,8 +28,21 @@ async def new_exercise(name: Annotated[str, Form()],
                        coords: Annotated[list, Form()],
                        get_current_user: int = Depends(auth.get_editor_user),
                        db: Session = Depends(get_db)):
+    """
+    Crea un nuevo ejercicio
+
+    @param name: Nombre del ejercicio
+    @param data: Fichero con los datos
+    @param video: Video del ejercicio
+    @param angles: Angulos que se van a evaluar
+    @param coords: Coordenadas que se van a evaluar
+    @param get_current_user: Verifica que sea un usuario valido
+    @param db: Sesion de la base de datos
+    @return: Verdadero si ha
+    """
     try:
-        
+        if video.content_type != "video/mp4":
+            raise HTTPException(400, detail="Invalid document type")
         datapath = save_file(data, "pos", DATA_DIR)
         videopath = save_file(video, "mp4", VIDEO_DIR)
         angles_schemas = [schemas.Angle(angle = angle) for angle in angles]
@@ -47,6 +59,12 @@ async def new_exercise(name: Annotated[str, Form()],
 async def delete_exercise(id: int,
                           get_editor_user: int = Depends(auth.get_editor_user),
                           db: Session = Depends(get_db)):
+    """
+    Elimina un ejercicio con el id especificado
+    
+    @para, id: 
+    @param get_current_user: Verifica que sea un usuario valido
+    """
     exercise = exercise_controller.get_exercise(db, id)
     if (exercise is None):
         raise HTTPException(
@@ -63,22 +81,32 @@ async def delete_exercise(id: int,
 
 @router.get("/get-exercises")
 async def get_exercises(get_current_user: int = Depends(auth.get_current_user), db:Session = Depends(get_db)):
+    """
+    Devuelve los ejercicios
+    """
     exercises: list [Exercise] = exercise_controller.get_all_exercises(db)
     exercises_names = [schemas.ExerciseName(id = exercise.id, name = exercise.name) for exercise in exercises]
     return {"exercises": exercises_names}
 
 @router.get("/get-video/{id}")
 async def get_video(id, get_current_user: int = Depends(auth.get_current_user), db:Session = Depends(get_db)):
-    exercise = exercise_controller.get_exercise(db, id)   
+    """
+    Devuelve el video del ejercicio con el id de la url
+    """
+    exercise = exercise_controller.get_exercise(db, id)
     path = exercise.video
     video = open_video(path, VIDEO_DIR)
     return video
 
 @router.get("/get-exercise/{id}")
 async def get_exercise(id, get_current_user: int = Depends(auth.get_current_user), db:Session = Depends(get_db)):
-    exercise = exercise_controller.get_exercise(db, id)   
+    """
+    Devuelve los ejercicios
+    """
+    exercise = exercise_controller.get_exercise(db, id)
     exercise_schema = schemas.ExerciseName(id = exercise.id, name = exercise.name)
     return exercise_schema
+
 
 @router.post("/send-user-exercise/{id}")
 async def post_user_exercise(id: int, 
