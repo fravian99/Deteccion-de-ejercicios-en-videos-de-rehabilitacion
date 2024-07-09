@@ -38,21 +38,21 @@ $my-palette: (
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 
-$frontend-primary: mat.define-palette($my-palette);
-$frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$frontend-primary: mat.m2-define-palette($my-palette);
+$frontend-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$frontend-warn: mat.define-palette(mat.$red-palette);
+$frontend-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$frontend-theme: mat.define-light-theme((
+$frontend-theme: mat.m2-define-light-theme((
   color: (
     primary: $frontend-primary,
     accent: $frontend-accent,
     warn: $frontend-warn,
   ),
-  typography: mat.define-typography-config(),
+  typography: mat.m2-define-typography-config(),
   density: 0
 ));
 
@@ -62,7 +62,8 @@ $frontend-theme: mat.define-light-theme((
 @include mat.all-component-themes($frontend-theme);
 
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
+
+html, body { min-height: 100%; overflow: hidden;}
 body { 
   //margin: 4px; 
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -70,11 +71,13 @@ body {
   
 }
 
+
 .container {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  //flex: 1;
   padding: auto;
+  height: 100%;
 }
 
 button, .button {

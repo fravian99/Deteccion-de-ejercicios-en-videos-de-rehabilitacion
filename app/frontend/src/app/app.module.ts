@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -34,54 +34,57 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 
+import { MarkdownModule } from 'ngx-markdown';
+
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    VideoPlayerComponent,
-    HeaderComponent,
-    HomeComponent,
-    LoginComponent,
-    SignupComponent,
-    NewExerciseComponent,
-    ExercisesComponent,
-    CompareExerciseComponent,
-    FooterComponent,
-    DeleteExerciseComponent,
-    MenuComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatCommonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      },
-      defaultLanguage: 'es'
-    }),
-  ],
-  providers: [
-    provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        VideoPlayerComponent,
+        HeaderComponent,
+        HomeComponent,
+        LoginComponent,
+        SignupComponent,
+        NewExerciseComponent,
+        ExercisesComponent,
+        CompareExerciseComponent,
+        FooterComponent,
+        DeleteExerciseComponent,
+        MenuComponent
+    ],
+    bootstrap: [AppComponent], 
+    
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        MatCommonModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            },
+            defaultLanguage: 'es'
+        }),
+        MarkdownModule.forRoot()
+    ], 
+    providers: [
+        provideAnimationsAsync(),
+        { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
