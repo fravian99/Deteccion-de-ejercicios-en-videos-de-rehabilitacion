@@ -11,7 +11,7 @@ import { DeleteExerciseComponent } from './delete-exercise/delete-exercise.compo
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
-  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'home', component: HomeComponent},
   {path: 'test', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},

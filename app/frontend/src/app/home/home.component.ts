@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MainService } from '../services/main.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,6 @@ import { MainService } from '../services/main.service';
 export class HomeComponent {
   video = undefined;
 
-  constructor(private mainService: MainService) {
+  constructor(private mainService: MainService, protected userService: UserService) {
   }
 }
