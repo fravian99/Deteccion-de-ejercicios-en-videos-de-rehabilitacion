@@ -11,6 +11,9 @@ oauth2_schema = OAuth2PasswordBearer(tokenUrl='user/login')
 
 
 def create_token(data: dict, expires_delta: timedelta | None = None):
+    """
+    Crea un token nuevo.
+    """
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
@@ -21,6 +24,9 @@ def create_token(data: dict, expires_delta: timedelta | None = None):
     return encoded_jwt
 
 def verify_token(token: str, credential_expection):
+    """
+    Verifica el token
+    """
     try:
         payload = jwt.decode(token,settings.SECRET_KEY,algorithms=settings.ALGORITHM)
         user_id: int = payload.get('sub')
@@ -35,8 +41,6 @@ def verify_token(token: str, credential_expection):
 def get_current_user(token: str = Depends(oauth2_schema)):
     """
     Devuelve el id del usuario si el token es valido
-    @param token: token del usuario
-    @return: Id del usuario
     """
     credential_expection = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                          detail="Could not validate credential",
@@ -50,6 +54,9 @@ def get_editor_user(token: str = Depends(oauth2_schema)):
     credential_expection = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                          detail="Could not validate credential",
                                          headers={"WWW-Authenticate":"Bearer"})
+    """
+    Devuelve el id del usuario editor si el token pertenece a uno con ese rol
+    """
 
     payload = verify_token(token,credential_expection)
     role: int = payload.get('role')

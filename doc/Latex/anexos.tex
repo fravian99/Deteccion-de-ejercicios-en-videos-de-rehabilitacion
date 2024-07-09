@@ -23,6 +23,33 @@
 % Ecuaciones
 \usepackage{amsmath}
 
+\usepackage{listings}
+
+\usepackage{longtable}
+
+\usepackage{inconsolata}
+\lstset{
+	language=bash, %% Troque para PHP, C, Java, etc... bash é o padrão
+	basicstyle=\ttfamily\small,
+	numberstyle=\footnotesize,
+	numbers=left,
+	backgroundcolor=\color{gray!10},
+	frame=single,
+	tabsize=2,
+	rulecolor=\color{black!30},
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	breaklines=true,
+	breakatwhitespace=true,
+	framextopmargin=2pt,
+	framexbottommargin=2pt,
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ó}{{\'o}}1 {í}{{\'i}}1
+}
+
+\usepackage{dirtree}
+
 % Rutas de fichero / paquete
 \newcommand{\ruta}[1]{{\sffamily #1}}
 
@@ -353,9 +380,9 @@
 
 
 % Datos de portada
-\title{título del TFG \\Documentación Técnica}
-\author{nombre alumno}
-\tutor{nombre tutor}
+\title{Detección de ejercicios en vídeos de rehabilitación \\Documentación Técnica}
+\author{Luis Ángel Espinosa Lafuente}
+\tutor{José Luis Garrido Labrador y José Miguel Ramírez Sanz}
 \date{\today}
 
 \begin{document}
