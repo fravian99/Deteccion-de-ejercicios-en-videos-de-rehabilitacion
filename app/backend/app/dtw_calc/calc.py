@@ -24,6 +24,9 @@ angles_names = [
     ]
 
 def compare(file1, file2, positions= body_names, angles = angles_names):
+    """
+    Compara dos ejercicios, actualmente como solo se obtuvieron buenos resultados con las coordenadas, se devuelve solo ese valor.
+    """
    
     data1 = pd.read_pickle(file1)
     data2 = pd.read_pickle(file2)
@@ -40,5 +43,8 @@ def compare(file1, file2, positions= body_names, angles = angles_names):
     return round(distance2, 2)
 
 def get_default_names():
+    """
+    Devuelve los nombres por defecto.
+    """
     return body_names, angles_names
 

@@ -28,4 +28,3 @@ class Settings(BaseSettings):
     )
 
 settings = get_settings()
-print(settings)

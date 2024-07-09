@@ -8,20 +8,8 @@ def mini_max_angles(data, ang):
 
         data[i] =(data[i] - min) / (max - min)
 
-def zscore_angles(data, ang):
-    from scipy.stats import zscore
-    for i in ang:
-        data[i] = zscore(data[i])
-
-
-def normalize_angles(data, ang, mode = "minmax"):
-    if mode == "minmax":
-        return mini_max_angles(data, ang)
-    elif mode == "zscore":
-        return zscore_angles(data, ang)
-    else:
-        for i in ang:
-            data[i] = data[i]/360
+def normalize_angles(data, ang):
+    return mini_max_angles(data, ang)
 
 # Coords
 def get_positions(body):

@@ -17,6 +17,9 @@ router = APIRouter(
 
 @router.post("/new-user")
 async def new_user(user: AuthBase, db: Session = Depends(get_db)):
+    """
+    Crea un nuevo usuario.
+    """
     try:
         auth_controller.create_user(db, user)
     except Exception:
@@ -26,6 +29,9 @@ async def new_user(user: AuthBase, db: Session = Depends(get_db)):
 
 @router.post("/login")
 def login(user_credentials: Annotated[OAuth2PasswordRequestForm,Depends()], db: Session = Depends(get_db)) -> Token:
+    """
+    Inicio de sesión.
+    """
     user: User = user_controller.get_user_by_username(db=db, username=user_credentials.username)
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")

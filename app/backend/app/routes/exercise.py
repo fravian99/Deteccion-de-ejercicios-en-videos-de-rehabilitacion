@@ -30,15 +30,6 @@ async def new_exercise(name: Annotated[str, Form()],
                        db: Session = Depends(get_db)):
     """
     Crea un nuevo ejercicio
-
-    @param name: Nombre del ejercicio
-    @param data: Fichero con los datos
-    @param video: Video del ejercicio
-    @param angles: Angulos que se van a evaluar
-    @param coords: Coordenadas que se van a evaluar
-    @param get_current_user: Verifica que sea un usuario valido
-    @param db: Sesion de la base de datos
-    @return: Verdadero si ha
     """
     try:
         if video.content_type != "video/mp4":
@@ -61,9 +52,6 @@ async def delete_exercise(id: int,
                           db: Session = Depends(get_db)):
     """
     Elimina un ejercicio con el id especificado
-    
-    @para, id: 
-    @param get_current_user: Verifica que sea un usuario valido
     """
     exercise = exercise_controller.get_exercise(db, id)
     if (exercise is None):
@@ -113,6 +101,9 @@ async def post_user_exercise(id: int,
                              data: Annotated[UploadFile, File()],
                              get_current_user: int = Depends(auth.get_current_user),
                              db:Session = Depends(get_db)):
+    """
+    Compara el ejercicio del usuario con el que se encuentra en base de datos.
+    """
     exercise = exercise_controller.get_exercise(db, id)
     profesional_path = os.path.join(DATA_DIR, exercise.data)
     with open(profesional_path, "rb") as profesional:  
@@ -122,6 +113,9 @@ async def post_user_exercise(id: int,
 
 @router.get("/default-parts")
 async def get_default_parts(db: Session = Depends(get_db)):
+    """
+    Devuelve todas las partes.
+    """
     res = {}
     res["angles"] = parts_controller.get_all_angles(db)
     res["coords"] = parts_controller.get_all_coords(db)

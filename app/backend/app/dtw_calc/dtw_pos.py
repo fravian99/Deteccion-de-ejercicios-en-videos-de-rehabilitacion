@@ -11,6 +11,9 @@ def get_score(distance):
     return 100- 100*distance
 
 def distance_dtw_pos(profesional, patient, used_coords_names):
+    """
+    Devuelve la puntuacion DTW segun las coordenadas
+    """
     temp = []
     used_coords_distance = 0
 

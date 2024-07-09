@@ -6,6 +6,9 @@ from app.models.parts import Coord, Angle
 
 
 class ExerciseCoord(Base):
+    """
+    Tabla que relaciona coordenadas con ejercicios.
+    """
     __tablename__ = "EXERCISE_COORD"
     exercise_id= Column(Integer,ForeignKey(Exercise.id), primary_key=True)
     coord_id= Column(String,ForeignKey(Coord.coord), primary_key=True)
@@ -13,6 +16,9 @@ class ExerciseCoord(Base):
     exercise = relationship('Exercise', back_populates='coords')
 
 class ExerciseAngle(Base):
+    """
+    Tabla que relaciona angulos con ejercicios.
+    """
     __tablename__ = "EXERCISE_ANGLE"
     exercise_id= Column(Integer,ForeignKey(Exercise.id), primary_key=True)
     angle_id= Column(String,ForeignKey(Angle.angle), primary_key=True)
