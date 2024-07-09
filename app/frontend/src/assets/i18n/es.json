@@ -1,6 +1,7 @@
 {
     "app": {
-        "title" : "Comparador de videos"  
+        "title": "Comparador de videos",
+        "repo": "Repositorio de GitHub"  
     },
     "new-exercise": {
         "title": "Nuevo ejercicio",
@@ -50,16 +51,19 @@
         "exercise-title": "Ejercicio:",
         "choose-file": "Elige un fichero",
         "send": "Enviar",
-        "score": "Puntuación",
+        "score": {
+            "title": "Puntuación",
+            "text": "Tu puntuación ha sido"
+        },
         "confirm": "Confirmar"
     },
     "delete-exercise" : {
         "title": "Borrar ejercicio",
-        "press-button": "Presiona el botón del ejercicio que quiere borrar.",
+        "press-button": "Presiona el botón del ejercicio que quiere borrar:",
         "delete": "Borrar",
         "deleting": {
-            "title": "¿Estas seguro?",
-            "text": "Seguro de que quieres borrar este ejercicio",
+            "title": "¿Estás seguro?",
+            "text": "¿Estás seguro de que quieres borrar este ejercicio?",
             "confirm": "Borrar",
             "cancel": "Cancelar"
         },
