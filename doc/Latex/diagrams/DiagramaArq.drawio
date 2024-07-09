@@ -1,0 +1,51 @@
+<mxfile host="Electron" modified="2024-07-07T21:34:05.501Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.4 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="pJodgmSwxa1HJiLcsPyJ" version="24.6.4" type="device">
+  <diagram name="Página-1" id="6bbtiCFfJjdt_Zca6UHy">
+    <mxGraphModel dx="3164" dy="1195" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kw_3CM8vaYCS3ZfU1BhW-1" value="Base de datos" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="-480" y="120" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kw_3CM8vaYCS3ZfU1BhW-2" value="FastAPI" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-510" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kw_3CM8vaYCS3ZfU1BhW-3" value="DTW" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-720" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_Cq2LG-TEBU_hFL20ZM-1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="kw_3CM8vaYCS3ZfU1BhW-3" target="kw_3CM8vaYCS3ZfU1BhW-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-450" y="630" as="sourcePoint" />
+            <mxPoint x="-400" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_Cq2LG-TEBU_hFL20ZM-2" value="Angular" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-340" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_Cq2LG-TEBU_hFL20ZM-5" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="kw_3CM8vaYCS3ZfU1BhW-1" target="kw_3CM8vaYCS3ZfU1BhW-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-590" y="310" as="sourcePoint" />
+            <mxPoint x="-500" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_Cq2LG-TEBU_hFL20ZM-6" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="kw_3CM8vaYCS3ZfU1BhW-2" target="e_Cq2LG-TEBU_hFL20ZM-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-550" y="440" as="sourcePoint" />
+            <mxPoint x="-380" y="440" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_Cq2LG-TEBU_hFL20ZM-7" value="Navegador del usuario" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-430" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_Cq2LG-TEBU_hFL20ZM-8" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="e_Cq2LG-TEBU_hFL20ZM-2" target="e_Cq2LG-TEBU_hFL20ZM-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-424" y="340" as="sourcePoint" />
+            <mxPoint x="-376" y="430" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
