@@ -4,10 +4,17 @@
 
     .compare-parts {
         display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
         .exercise {
-            width: 45%;
-            height: 100%;
+            //display: flex;
+            height: max-content;
+            min-width: 60%;
             padding-right: 30px;
+            //align-items: start;
+            //flex-direction: column;
             
             app-video-player {
                 display: "flex";
@@ -16,14 +23,21 @@
             }
         }
         .score {
-            height: 100%;
-            width: 45%;
-            justify-self: end;
-            align-self: self-start;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            min-width: 20%;
+            margin-top: 30px;
+           
+            //align-self: self-start;
+            *{
+                padding-bottom: 10px;
+            }
+
         }
 
-        .exercise, .score {
-            display: inline-block;
+        .exercise {
+            //display: inline-block;
         }
     }
 

@@ -29,7 +29,7 @@ export class SignupComponent {
       this.userService.newUser(this.signupForm.value).subscribe({
         next: (res: any) => {
           if (res) {
-            this.router.navigate(['home'])
+            this.router.navigate(['/'])
           }
         }, 
         error: (err) => {

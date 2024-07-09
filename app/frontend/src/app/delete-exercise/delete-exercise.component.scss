@@ -1,0 +1,28 @@
+.delete-exercise {
+    height: 100%;
+    width: 100%;
+    white-space: pre-wrap;
+
+    .exercise-list {
+        width: 100%;
+        padding: auto;
+        margin-bottom: 10px;
+
+        
+        .exercise-option {
+            margin-bottom: 10px;
+            width: 100%;
+
+        }
+    }
+
+    span{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 40%;
+        margin-left: 100px;
+        margin-top: 10px;
+    }
+
+}

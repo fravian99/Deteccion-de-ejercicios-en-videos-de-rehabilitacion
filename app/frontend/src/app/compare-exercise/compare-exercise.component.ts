@@ -3,6 +3,8 @@ import { ExerciseService } from '../services/exercise.service';
 import { ActivatedRoute } from '@angular/router';
 import { ExerciseName } from '../models/exerciseName';
 import { UserExercise } from '../models/userExercise';
+import Swal from 'sweetalert2';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-compare-exercise',
@@ -18,7 +20,8 @@ export class CompareExerciseComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private translate: TranslateService
   ) {
     this.id = this.route.snapshot.params['id'];
     
@@ -50,6 +53,11 @@ export class CompareExerciseComponent implements OnInit{
       this.exerciseService.postUserExercise(userExercise).subscribe({
         next: (res: any) => {
           this.score = res;
+          Swal.fire({
+            title: this.translate.instant('compare.score.title'),
+            text:  this.translate.instant('compare.score.text') + " " + String(this.score),
+            icon: "success"
+          });
         }
       });
     }

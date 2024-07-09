@@ -21,7 +21,7 @@
             <mat-form-field >
                 <mat-label>{{"new-exercise.select.angles" | translate }}</mat-label>
                 <mat-select formControlName="angles" multiple [placeholder]="'new-exercise.angles' | translate">
-                    @for (angle of angles; track angles) {
+                    @for (angle of angles; track angle) {
                     <mat-option [value]="angle.angle">{{angle.angle}}</mat-option>
                     }
                 </mat-select>
@@ -32,7 +32,7 @@
             <mat-form-field>
                 <mat-label>{{"new-exercise.select.coords" | translate }}</mat-label>
                 <mat-select formControlName="coords" multiple [placeholder]="'new-exercise.coords' | translate">
-                    @for (coord of coords; track coords) {
+                    @for (coord of coords; track coord) {
                     <mat-option [value]="coord.coord">{{coord.coord}}</mat-option>
                     }
                 </mat-select>

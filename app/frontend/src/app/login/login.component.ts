@@ -27,7 +27,7 @@ export class LoginComponent {
     });
   }
   loginRedirect() {
-    this.router.navigate(['home']);
+    this.router.navigate(['/']);
   }
 
   submitForm() {

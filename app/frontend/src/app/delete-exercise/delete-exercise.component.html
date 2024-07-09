@@ -3,8 +3,10 @@
     <label>{{"delete-exercise.press-button" | translate}}</label>
     <div class="exercise-list">
         <div class="exercise-option" *ngFor="let exercise of exercises">
-            <label>{{exercise.name}}</label>
-            <button (click)="deleteExercise(exercise)">{{"delete-exercise.delete" | translate}}</button>
+            <span>
+                <label>{{exercise.name}}</label>
+                <button (click)="deleteExercise(exercise)">{{"delete-exercise.delete" | translate}}</button>
+            </span>
         </div>
     </div>
 </section>
