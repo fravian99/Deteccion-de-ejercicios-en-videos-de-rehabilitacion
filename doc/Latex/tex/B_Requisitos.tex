@@ -4,12 +4,19 @@
 En esta sección se trataran los objetivos y requisitos del proyecto. También se definirán los distintos actores que utilizaran la aplicación y se establecerán los  casos de uso de la misma.
 
 \section{Objetivos generales}
-
+Los objetivos generales que se buscan alcanzar  son los siguientes: 
+\begin{itemize}
+	\item Investigar sobre la comparación de secuencias temporales.
+	\item  Investigar distintos métodos de normalización para poder preparar los datos.
+	\item Investigar sobre las distintas formas de evaluar la ejecución de ejercicios.
+	\item Desarrollar una aplicación con la que el usuario pueda comparar ejercicios de forma sencilla.
+\end{itemize}
 \section{Catálogo de requisitos}
 \subsection{Actores}
+Es importante distinguir los roles de los usuarios de la aplicación, a efectos de uso de la misma se pueden distinguir dos roles:
 \begin{itemize}
-	\item Terapeuta
-	\item Paciente
+	\item \textbf{Terapeuta}: Persona que se encarga de crear los ejercicios que realizaran los pacientes.
+	\item \textbf{Paciente}: Persona que quiere comparar su ejercicio con el del terapeuta.
 \end{itemize} 
 
 
@@ -44,6 +51,20 @@ En este apartado se trataran los requisitos funcionales de la
 	\end{itemize}
 \end{itemize}
 \section{Especificación de requisitos}
+En esta sección se especificaran tanto los diagramas de casos de uso como los requisitos necesarios para que la aplicación se pueda desarrollar.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/CasosDeUso-Paciente}
+	\caption{Diagrama de casos de uso del paciente.}
+	\label{fig:casosdeuso-paciente}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/CasosDeUso-Terapeuta}
+	\caption{Diagrama de casos de uso del terapeuta.}
+	\label{fig:casosdeuso-terapeuta}
+\end{figure}
 
 
 \begin{table}[p]
@@ -52,10 +73,10 @@ En este apartado se trataran los requisitos funcionales de la
 		\toprule
 		\textbf{CU-1}    & \textbf{Creación de un nuevo ejercicio}\\
 		\toprule
-		\textbf{Versión}              & 1.1    \\
+		\textbf{Versión}              & 1.2    \\
 		\textbf{Autor}                & Luis Ángel Espinosa Lafuente \\
 		\textbf{Requisitos asociados} & RF-1.1 RF-2.1 \\
-		\textbf{Descripción}          & Permite al terapeuta crear un ejercicio   \\
+		\textbf{Descripción}          & Permite al terapeuta crear un ejercicio.  \\
 		\textbf{Precondición}         & El terapeuta ha iniciado sesión con una cuenta con el rol correspondiente \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
@@ -63,6 +84,8 @@ En este apartado se trataran los requisitos funcionales de la
 			\tightlist
 			\item El terapeuta introduce el nombre del ejercicio.
 			\item El terapeuta añade un fichero de datos.
+			\item El terapeuta añade un vídeo.
+			\item El terapeuta selecciona los ángulos y coordenadas que serán usados para la puntuación.
 			\item El terapeuta presiona el botón de confirmar.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
@@ -82,13 +105,13 @@ En este apartado se trataran los requisitos funcionales de la
 		\textbf{Versión}              & 1.1    \\
 		\textbf{Autor}                & Luis Ángel Espinosa Lafuente\\
 		\textbf{Requisitos asociados} & RF-1.2 RF-2.1 \\
-		\textbf{Descripción}          & Permite al terapeuta eliminar un ejercicio   \\
+		\textbf{Descripción}          & Permite al terapeuta eliminar un ejercicio.   \\
 		\textbf{Precondición}         & 
 		\begin{enumerate}		
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
 				\item El terapeuta ha iniciado sesión con una cuenta con el rol correspondiente.
-				\item El terapeuta ha creado ejercicios previamente 
+				\item El terapeuta ha creado ejercicios previamente. 
 		\end{enumerate} \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
@@ -98,7 +121,7 @@ En este apartado se trataran los requisitos funcionales de la
 			\item El terapeuta presiona el botón de confirmar.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Acceso no autorizado en el caso de que el usuario no haya iniciado sesión con el rol de terapeuta \\
+		\textbf{Excepciones}          & Acceso no autorizado en el caso de que el usuario no haya iniciado sesión con el rol de terapeuta. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -120,7 +143,7 @@ En este apartado se trataran los requisitos funcionales de la
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
 			\item El usuario ha iniciado sesión en la aplicación correctamente.
-			\item El terapeuta ha creado ejercicios previamente 
+			\item El terapeuta ha creado ejercicios previamente.
 		\end{enumerate}\\
 		\textbf{Acciones}             &
 		\begin{enumerate}
@@ -129,7 +152,7 @@ En este apartado se trataran los requisitos funcionales de la
 			\item El usuario selecciona un ejercicio de un listado.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Acceso no autorizado en el caso de que el usuario no haya iniciado sesión \\
+		\textbf{Excepciones}          & Acceso no autorizado en el caso de que el usuario no haya iniciado sesión. \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
@@ -145,7 +168,7 @@ En este apartado se trataran los requisitos funcionales de la
 		\textbf{Versión}              & 1.1    \\
 		\textbf{Autor}                &  Luis Ángel Espinosa Lafuente \\
 		\textbf{Requisitos asociados} & RF-4.1 \\
-		\textbf{Descripción}          & Permite al usuario comparar el ejercicio\\
+		\textbf{Descripción}          & Permite al usuario comparar el ejercicio.\\
 		\textbf{Precondición}     &    
 		\begin{enumerate}		
 			\def\labelenumi{\arabic{enumi}.}
@@ -160,7 +183,7 @@ En este apartado se trataran los requisitos funcionales de la
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
 			\item El usuario visualiza la puntuación de un ejercicio.
-			\item El usuario visualiza el video del ejercicio.
+			\item El usuario visualiza el vídeo del ejercicio.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
 		\textbf{Excepciones}          & Acceso no autorizado en el caso de que el usuario no haya iniciado sesión \\
@@ -179,13 +202,13 @@ En este apartado se trataran los requisitos funcionales de la
 		\textbf{Versión}              & 1.1    \\
 		\textbf{Autor}                &  Luis Ángel Espinosa Lafuente \\
 		\textbf{Requisitos asociados} & RF-3.1\\
-		\textbf{Descripción}          & Permite al usuario ver los ejercicios disponibles y seleccionar el ejercicio que se va a comparar\\
+		\textbf{Descripción}          & Permite al usuario ver los ejercicios disponibles y seleccionar el ejercicio que se va a comparar.\\
 		\textbf{Precondición}         & 
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
 			 \item  El usuario ha iniciado sesión correctamente.
-			\item El usuario a seleccionado un ejercicio 
+			\item El usuario a seleccionado un ejercicio. 
 		\end{enumerate}\\
 		\textbf{Acciones}             &
 		\begin{enumerate}
@@ -212,22 +235,22 @@ En este apartado se trataran los requisitos funcionales de la
 		\textbf{Versión}              & 1.0    \\
 		\textbf{Autor}                &  Luis Ángel Espinosa Lafuente \\
 		\textbf{Requisitos asociados} & RF-5.1\\
-		\textbf{Descripción}          & Permite al usuario crear una cuenta para poder usar la aplicación\\
+		\textbf{Descripción}          & Permite al usuario crear una cuenta para poder usar la aplicación.\\
 		\textbf{Precondición}         & Ninguna\\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item El usuario introduce el usuario
-			\item El usuario introduce una contraseña
-			\item El usuario presiona el botón de confirmar
+			\item El usuario introduce el usuario.
+			\item El usuario introduce una contraseña.
+			\item El usuario presiona el botón de confirmar.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
 		\textbf{Excepciones}          & El usuario ya existe. \\
 		\textbf{Importancia}          & Baja \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-6 Creación de cuenta}
+	\caption{CU-6 Creación de cuenta.}
 \end{table}
 
 \begin{table}[p]
@@ -245,15 +268,15 @@ En este apartado se trataran los requisitos funcionales de la
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item El usuario introduce el usuario
-			\item El usuario introduce una contraseña
-			\item El usuario presiona el botón de confirmar
+			\item El usuario introduce el usuario.
+			\item El usuario introduce una contraseña.
+			\item El usuario presiona el botón de confirmar.
 		\end{enumerate}\\
 		\textbf{Postcondición}        & Ninguna \\
-		\textbf{Excepciones}          & Usuario o contraseña incorrectos \\
+		\textbf{Excepciones}          & Usuario o contraseña incorrectos. \\
 		\textbf{Importancia}          & Baja \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-7 Inicio de sesión}
+	\caption{CU-7 Inicio de sesión.}
 \end{table}
 

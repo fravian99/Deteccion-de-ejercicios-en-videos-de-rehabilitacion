@@ -1,20 +1,29 @@
 \apendice{Plan de Proyecto Software}
 
 \section{Introducción}
+La planificación de un proyecto es vital para su correcto desarrollo. En este apartado se estudian las diferentes fases del proyecto, los plazos y los recursos necesarios para llevarlo acabo y otros requisitos de viabilidad.
+
+En esta fase se distinguen dos secciones:
+\begin{enumerate}
+	\item \textbf{Planificación temporal}: Se analizaran los distintos sprints exponiendo su fecha de inicio y fin y las tareas, especificando tanto el coste estimado como el final que tuvieron.
+	
+	\item \textbf{Estudio de viabilidad}: En esta etapa se estimarán los costes del proyecto. También se tratarán la viabilidad legal del trabajo, en la que se expondrán las licencias de las dependencias usadas, así como la licencia final del proyecto. 
+\end{enumerate}
 
 \section{Planificación temporal}
-
+La planificación temporal se ha dividido en distintos sprints de una a dos semanas de duración cada uno, en los cuales se realizaron distintas tareas y reuniones. Las reuniones se realizaban de forma telemática semanalmente, en ellas se exponían las tareas realizadas y las dudas y los problemas que surgían, a lo que se aportaban distintas soluciones y tareas nuevas.
 \subsection{Sprint 0: 06/02/2024 - 12/03/2024}
 En el \textit{sprint 0} se buscaron y leyeron artículos mientras se preparaban los vídeos necesarios. También se creo el repositorio y se clonó la plantilla de \LaTeX proporcionada por la Universidad De Burgos.
 
 \begin{table}[H]
+	\centering
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
-		Investigar sobre el sistema de puntuaciones de Just Dance & 8 & 9 \\
-	 	Investigar sobre métodos para diferenciar las poses. & 5 & 8 \\
+		\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
+		Investigar el sistema de puntuaciones de Just Dance & 8 & 9 \\
+	 	Investigar métodos para diferenciar las poses. & 5 & 8 \\
 	 	Descargar plantilla de \LaTeX & 0.5 & 0.5 \\
 	\end{tabular}
-\caption{Sprint 0}
+\caption{Sprint 0.}
 \label{sprint0}
 \end{table}
 
@@ -22,8 +31,9 @@ En el \textit{sprint 0} se buscaron y leyeron artículos mientras se preparaban 
 En este \textit{sprint 1} se usó para hacer pruebas con los datos.
 
 \begin{table}[H]
+	\centering
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
+		\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
 		Añadir archivos de datos & 0.5 & 0.5 \\
 		Revisar vídeos de los ejercicios & 1 & 2 \\
 		Dibujar esqueleto con los puntos de un frame & 3 & 4 \\
@@ -32,95 +42,342 @@ En este \textit{sprint 1} se usó para hacer pruebas con los datos.
 		Aplicar similitud coseno & 2 & 2 \\
 		
 	\end{tabular}
-	\caption{Sprint 1}
+	\caption{Sprint 1.}
 	\label{sprint1}
 \end{table}
 
 \subsection{Sprint 2: 26/03/2024 - 11/04/2024}
+Este \textit{sprint} se utilizó para investigar sobre Dynamic Time Warping (DTW).
+
 \begin{table}[H]
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
+	\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
 		Explicar similitud coseno en la memoria & 3 & 3 \\
 		Añadir Sprint 0 a la memoria & 1 & 1 \\
 		Añadir Sprint 1 a la memoria & 1 & 1 \\
 		Añadir herramientas a la memoria & 2 & 2 \\
-		Mirar DTW & 5 & 5 \\
-		Limpiar los datos de los csv y dataframe & 1 & 0.5 \\
+		Investigar sobre DTW & 5 & 5 \\
+		Limpiar los datos de los CSV y DataFrame & 1 & 0.5 \\
 
 	\end{tabular}
-	\caption{Sprint 2}
+	\caption{Sprint 2.}
 	\label{sprint2}
 \end{table}
 
 \subsection{Sprint 3: 11/04/2024 - 24/04/2024}
+En este \textit{sprint} se continuó con las pruebas de similitud coseno y se comenzó con las pruebas de DTW.
 \begin{table}[H]
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
-		Comparación de videos mediante similitud coseno & 5 & 5 \\
+		\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
+		Comparación de vídeos mediante similitud coseno & 5 & 5 \\
 		Pruebas con DTW & 5 & 5 \\
 		Añadir Sprint 2 a la memoria & 1 & 1 \\
 		Añadir explicación de DTW a la memoria & 5 & 5 \\
 	\end{tabular}
-	\caption{Sprint 3}
+	\caption{Sprint 3.}
 	\label{sprint3}
 \end{table}
 
 \subsection{Sprint 4: 26/04/2024 - 7/05/2024}
+Durante el \textit{sprint} anterior se detectó que había posiciones que no se habían detectado correctamente dando valores nulos, por lo que se buscó cuales eran. También se empezó a  
 \begin{table}[H]
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
+		\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
 		Comprobar en que ficheros hay celdas vacías & 3 & 3 \\
-		Comprobar 3 videos de un mismo ejercicio & 5 & 4 \\
+		Comprobar 3 vídeos de un mismo ejercicio & 5 & 4 \\
 		Añadir Sprint 3 a la memoria & 1 & 0.5 \\
 	    DTW con ángulos& 5 & 6 \\
 	\end{tabular}
-	\caption{Sprint 4}
+	\caption{Sprint 4.}
 	\label{sprint4}
 \end{table}
 
-\subsection{Sprint 5: 8/05/2024 - 21/06/2024 }
+\subsection{Sprint 5: 8/05/2024 - 21/05/2024 }
+Al haber recibido los datos de los ejercicios ejecutados correctamente, se comenzó a hacer pruebas con ellos.
 \begin{table}[H]
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
-	    Añadir datos de los ejercicios realizados correctamente y hacer pruebas con ellos & 2 & 2 \\
+	\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
+	    Hacer pruebas con ejercicios correctos & 2 & 2 \\
 		Añadir pruebas con métodos de normalización en dtw & 3 & 5 \\
 		Añadir Sprint 4 a la memoria & 1 &1 \\
 		Reorganizando y añadiendo explicaciones en las pruebas & 3 & 3 \\
 		Pruebas fastdtw & 3 & 3 \\
 	\end{tabular}
-	\caption{Sprint 5}
+	\caption{Sprint 5.}
 	\label{sprint5}
 \end{table}
 
 \subsection{Sprint 6: 22/05/2024 - 5/06/2024 }
+En este \textit{sprint} se investigó sobre las posibles tecnologías que se iban a usar en la aplicación así como continuar con las pruebas de ángulos.
 \begin{table}[H]
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
-		Investigar Angular, Fastapi y otras tecnologías para la aplicación & 8 & 8 \\
+	\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
+		Investigar tecnologías para la aplicación & 8 & 8 \\
 		Investigar métodos de normalización & 5 & 5 \\
 		Añadir Sprint 5 a la memoria & 0.5 &0.5 \\
 		Continuar con las pruebas de ángulos & 3 & 3 \\
 	\end{tabular}
-	\caption{Sprint 6}
+	\caption{Sprint 6.}
 	\label{sprint6}
 \end{table}
 
-\subsection{Sprint 7: 5/05/2024 - 12/06/2024 }
-\begin{table}[H]
+\subsection{Sprint 7: 5/06/2024 - 12/06/2024 }
+Se añadieron los métodos de normalización investigados durante el \textit{sprint} anterior.
+\begin{table}[h]
+	\centering
 	\begin{tabular}{lcc}
-		\multicolumn{1}{c}{Tareas} & Pto. Estimados & Pto. Reales\\
-		Añadir metodos de normalización & 8 & 8 \\
+		\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
+		Añadir métodos de normalización & 8 & 8 \\
 		Añadir casos de uso de la aplicación & 5 & 5 \\
 		Añadir Sprint 6 a la memoria & 0.5 &0.5 \\
 	\end{tabular}
-	\caption{Sprint 7}
+	\caption{Sprint 7.}
 	\label{sprint7}
+\end{table}
+
+\subsection{Sprint 8: 12/06/2024 - 19/06/2024 }
+Este \textit{sprint} se utilizó para desarrollar la aplicación.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lcc}
+		\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
+		Empezar a desarrollar la aplicación & 5 & 8 \\
+		Avanzar con los anexos & 5 & 5 \\
+		Avanzar con la memoria & 5 &6 \\
+	\end{tabular}
+	\caption{Sprint 8.}
+	\label{sprint8}
+\end{table}
+
+\subsection{Sprint 9: 19/06/2024 - 9/07/2024 }
+Este \textit{sprint} se utilizó para terminar todo lo que quedaba.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lcc}
+		\multicolumn{1}{c}{\textbf{Tareas}} & \textbf{Pto. Estimados} & \textbf{Pto. Reales}\\
+		Terminar la memoria & 8 & 8 \\
+		Terminar los anexos & 8 & 8 \\
+		Terminar la aplicación & 8 &8 \\
+	\end{tabular}
+	\caption{Sprint 9.}
+	\label{sprint9}
 \end{table}
 
 \section{Estudio de viabilidad}
 
 \subsection{Viabilidad económica}
 
+\subsubsection{Coste de personal}
+Suponiendo que este trabajo se hubiera realizado en un entorno profesional hubiera necesario contratar a un desarrollador. Se estima que este proyecto se realizó en 490 horas repartidas en 5 meses, lo que supone 24,5 horas semanales  de trabajo. El sueldo medio de un desarrollador junior en España es de 11,61 euros/hora \cite{salariomedio}.
+
+\begin{equation}
+	24,5h/semana * 4semanas/mes * 11,61euro/hora = 1137,78 euro/mes
+\end{equation}
+A esta cantidad se le añadirían los impuestos que ha de pagar como empresa por contratar al empleado:
+\begin{itemize}
+	\item Contingencias Comunes: Correspondiente el 23,6\%.
+	 \item  Accidentes de Trabajo y Enfermedades Profesionales: Correspondiente el 1,5\%.
+	 \item Desempleo: Correspondiente el 6,70\%.
+	 \item Fogasa: Correspondiente el 0,20\%.
+	 \item Formación profesional: Correspondiente el 0,60\%.
+\end{itemize}
+
+Teniendo en cuenta los costes de seguridad social para la empresa se podría calcular el coste total empleando la siguiente fórmula.
+
+\begin{equation}
+\dfrac{	1137,78 euro/mes}{1-(0,236 + 0,067 + 0,002 + 0,006 )} = 1651,35 euro/mes
+\end{equation}
+
+\begin{equation}
+ 1651,35 euro/mes * 5 meses = 8256,75 euros
+\end{equation}
+
+\subsubsection{Costes hardware}
+Para este trabajo se utilizó un ordenador  y una cámara para las reuniones telemáticas. Se han utilizado durante 5 meses, dato que se tendrá en cuenta al calcular el coste amortizado. Como se puede ver en la tabla \ref{costes:hardware}.
+\begin{table}
+	\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Elemento} & \textbf{Coste} &\textbf{ Coste amortizado} \\
+	\hline
+	Ordenador portátil  & 1000 & 83,33 \\
+	\hline
+	WebCam & 100 & 8,33 \\
+	\hline
+\end{tabular}
+\caption{Costes hardware.}
+\label{costes:hardware}
+\end{table}
+\subsubsection{Costes totales}
+El coste total es la suma de todos los costes, que será de 8.348,41 euros al mes.
 \subsection{Viabilidad legal}
+En esta subsección se van a exponer las distintas licencias que tienen las herramientas y librerías utilizadas, así como la licencia final con la que cuenta este proyecto.
+
+Las tablas \ref{deps:back1} y \ref{deps:fonts} reflejan las licencias de las dependencias usadas en este proyecto.
 
 
+	\begin{longtable}{|c|c|c|}
+		\hline
+		\textbf{Paquete} & \textbf{Version} & \textbf{Licencia} \\
+		\hline
+		\endhead
+		Jinja2 & 3.1.4 & BSD License \\
+		\hline
+		MarkupSafe & 2.1.5 & BSD License \\
+		\hline
+		PyJWT & 2.8.0 & MIT License \\
+		\hline
+		PyYAML & 6.0.1 & MIT License \\
+		\hline
+		Pygments & 2.18.0 & BSD License \\
+		\hline
+		SQLAlchemy & 2.0.31 & MIT License \\
+		\hline
+		annotated-types & 0.7.0 & MIT License \\
+		\hline
+		anyio & 4.4.0 & MIT License \\
+		\hline
+		certifi & 2024.7.4 & Mozilla Public License 2.0 (MPL 2.0) \\
+		\hline
+		click & 8.1.7 & BSD License \\
+		\hline
+		dnspython & 2.6.1 & ISC License (ISCL) \\
+		\hline
+		dtaidistance & 2.3.12 & Apache Software License \\
+		\hline
+		email\_validator & 2.2.0 & The Unlicense (Unlicense) \\
+		\hline
+		fastapi & 0.111.0 & MIT License \\
+		\hline
+		fastapi-cli & 0.0.4 & MIT License \\
+		\hline
+		greenlet & 3.0.3 & MIT License \\
+		\hline
+		h11 & 0.14.0 & MIT License \\
+		\hline
+		httpcore & 1.0.5 & BSD License \\
+		\hline
+		httptools & 0.6.1 & MIT License \\
+		\hline
+		httpx & 0.27.0 & BSD License \\
+		\hline
+		idna & 3,7 & BSD License \\
+		\hline
+		markdown-it-py & 3.0.0 & MIT License \\
+		\hline
+		mdurl & 0.1.2 & MIT License \\
+		\hline
+		numpy & 2.0.0 & BSD License \\
+		\hline
+		orjson & 3.10.6 & Apache Software License; MIT License \\
+		\hline
+		pandas & 2.2.2 & BSD License \\
+		\hline
+		passlib & 1.7.4 & BSD \\
+		\hline
+		psycopg2-binary & 2.9.9 & GNU Library or LGPL \\
+		\hline
+		pydantic & 2.8.2 & MIT License \\
+		\hline
+		pydantic-settings & 2.3.4 & MIT License \\
+		\hline
+		pydantic\_core & 2.20.1 & MIT License \\
+		\hline
+		python-dateutil & 2.9.0.post0 & Apache Software License; BSD License \\
+		\hline
+		python-dotenv & 1.0.1 & BSD License \\
+		\hline
+		python-multipart & 0.0.9 & Apache Software License \\
+		\hline
+		pytz & 2024,1 & MIT License \\
+		\hline
+		rich & 13.7.1 & MIT License \\
+		\hline
+		shellingham & 1.5.4 & ISC License (ISCL) \\
+		\hline
+		six & 1.16.0 & MIT License \\
+		\hline
+		sniffio & 1.3.1 & Apache Software License; MIT License \\
+		\hline
+		starlette & 0.37.2 & BSD License \\
+		\hline
+		typer & 0.12.3 & MIT License \\
+		\hline
+		typing\_extensions & 4.12.2 & Python Software Foundation License \\
+		\hline
+		tzdata & 2024,1 & Apache Software License \\
+		\hline
+		ujson & 5.10.0 & BSD License \\
+		\hline
+		uvicorn & 0.30.1 & BSD License \\
+		\hline
+		uvloop & 0.19.0 & Apache Software License; MIT License \\
+		\hline
+		watchfiles & 0.22.0 & MIT License \\
+		\hline
+		websockets & 12 & BSD License \\
+		\hline
+		\caption{Tabla con las licencias de las librerías y herramientas utilizadas en el \textit{backend}.}
+		\label{deps:back1}
+	\end{longtable}
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Paquete} & \textbf{Versión} & \textbf{Versión} & \textbf{Licencia} \\
+		~ & \textbf{instalada} & \textbf{mínima} &~ \\
+			\hline
+		@angular/animations & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/cdk & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/common & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/compiler & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/core & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/forms & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/material & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/platform-browser & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/platform-browser-dynamic & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@angular/router & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@auth0/angular-jwt & 5.2.0 & \^{}5.2.0 & MIT \\
+		\hline
+		@ngx-translate/http-loader & 8.0.0 & \^{}8.0.0 & MIT \\
+		\hline
+		marked & 12.0.2 & \^{}12.0.2 & MIT \\
+		\hline
+		ngx-markdown & 18.0.0 & \^{}18.0.0 & MIT \\
+		\hline
+		ngx-translate & 0.0.1-security & \^{}0.0.1-security & MIT \\
+		\hline
+		rxjs & 7.8.1 & \~{}7.8.0 & Apache-2.0 \\
+		\hline
+		sweetalert2 & 11.12.2 & \^{}11.12.2 & MIT \\
+		\hline
+		tslib & 2.6.3 & \^{}2.6.3 & 0BSD \\
+		\hline
+		zone.js & 0.14.7 & \^{}0.14.7 & MIT \\
+		\hline
+		@angular-devkit/build-angular & 18.0.7 & \^{}18.0.7 & MIT \\
+		\hline
+		@angular/cli & 18.0.7 & \^{}18.0.7 & MIT \\
+		\hline
+		@angular/compiler-cli & 18.0.6 & \^{}18.0.6 & MIT \\
+		\hline
+		@types/jasmine & 5.1.4 & \~{}5.1.0 & MIT \\
+		\hline
+		typescript & 5.4.5 & \~{}5.4.5 & Apache-2.0 \\
+		\hline
+	\end{tabular}
+	\caption{Table de dependencias del \textit{frontend} con sus licencias.}
+	\label{deps:fonts}
+\end{table}
+La licencia final escogida para este proyecto ha sido GPL v3.0 ya que esta licencia permite utilizar el software desarrollado para su uso comercial y modificar las implementaciones realizadas, distribuirlas, realizar patentes sobre ellas y usarlas de forma privada que no entra en conflicto con ninguna licencia de las herramientas y librerías utilizadas.
